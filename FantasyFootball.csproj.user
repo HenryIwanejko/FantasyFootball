@@ -2,7 +2,8 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SelectedDevice>pixel_2_xl_oreo_8_1_-_api_27</SelectedDevice>
-    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredDevice>pixel_2_xl</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
+    <DefaultDevice>pixel_2_xl_oreo_8_1_-_api_27</DefaultDevice>
   </PropertyGroup>
 </Project>
