@@ -1,0 +1,59 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Welcome to Fantasy Five Aside Team Picker"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/mainWelcomeTxtView"
+        android:textStyle="normal"
+        android:textColor="#ff000000" />
+    <Button
+        android:layout_below="@+id/mainWelcomeTxtView"
+        android:text="Instructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/mainInstructionsBtn"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px" />
+    <Button
+        android:layout_below="@+id/mainInstructionsBtn"
+        android:text="Register Team"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/mainRegisterTeamBtn"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"/>
+    <Button
+        android:layout_below="@+id/mainRegisterTeamBtn"
+        android:text="Pick Teams"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/mainPickTeamsBtn"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"/>
+    <Button
+        android:layout_below="@+id/mainPickTeamsBtn"
+        android:text="Admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/mainAdminBtn"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"/>
+</RelativeLayout>
