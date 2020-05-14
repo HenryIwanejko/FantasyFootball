@@ -65,11 +65,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminActivity.cs" />
-    <Compile Include="InstructionsActivity.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="PickTeamActivity.cs" />
-    <Compile Include="RegisterTeamActivity.cs" />
+    <Compile Include="Activities\AdminActivity.cs" />
+    <Compile Include="Activities\InstructionsActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\PickTeamActivity.cs" />
+    <Compile Include="Activities\RegisterTeamActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
