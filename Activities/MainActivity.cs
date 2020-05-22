@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
+using System.IO;
 
 namespace FantasyFootball
 {
@@ -16,6 +17,32 @@ namespace FantasyFootball
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
             AddEventHandlers();
+            InitialiseDatabase();
+        }
+
+        private void InitialiseDatabase()
+        {
+            var docFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var dbFile = Path.Combine(docFolder,"db.sqlite");
+            if (!File.Exists(dbFile))
+            {
+                var s = Resources.OpenRawResource(Resource.Raw.FantasyTeams);
+                FileStream writeStream = new FileStream(dbFile, FileMode.OpenOrCreate, FileAccess.Write);
+                ReadWriteStream(s, writeStream);
+            }
+        }
+
+        private void ReadWriteStream(Stream readStream, Stream writeStream)
+        {
+            int length = 256;
+            byte[] buffer = new byte[length];
+            int bytesRead = readStream.Read(buffer, 0, length);
+            while(bytesRead > 0) {
+                writeStream.Write(buffer, 0, bytesRead);
+                bytesRead = readStream.Read(buffer, 0, length);
+            }
+            readStream.Close();
+            writeStream.Close();
         }
 
         private void AddEventHandlers()

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,15 +8,89 @@
     android:layout_height="match_parent">
     <TextView
         android:text="Instructions:"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
         android:id="@+id/instructionsTitleTxtView"
         android:textColor="#ff000000"
-        android:textStyle="bold" />
-    <Button
+        android:textStyle="bold"
+        android:textSize="75px" />
+    <TextView
         android:layout_below="@+id/instructionsTitleTxtView"
+        android:gravity="center"
+        android:text="- This app is played by 2 players on the same device who are the Managers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/instructionsText1TxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"/>
+    <TextView
+        android:layout_below="@+id/instructionsText1TxtView"
+        android:gravity="center"
+        android:text="- Each manager is to select their squads from a dwindling pool of players where a player can only be a member of a single team"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/instructionsText2TxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"/>
+    <TextView
+        android:layout_below="@+id/instructionsText2TxtView"
+        android:gravity="center"
+        android:text="- Managers should take turns to select their players"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/instructionsText3TxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"/>
+    <TextView
+        android:layout_below="@+id/instructionsText3TxtView"
+        android:gravity="center"
+        android:text="- The players are divided into four basic positions (Goalkeepers, Defenders, Midfielders and Forwards)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/instructionsText4TxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"/>
+    <TextView
+        android:layout_below="@+id/instructionsText4TxtView"
+        android:gravity="center"
+        android:text="- Teams are made up of 5 players and managers need to select a set number of each kind of player: 1 goalkeeper and any combination of defenders, midfielders and forwards that they want as long as the team ends up with 5 players and there is at least one defender, one midfielder and one forward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/instructionsText5TxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"/>
+    <TextView
+        android:layout_below="@+id/instructionsText5TxtView"
+        android:gravity="center"
+        android:text="- Managers are not allowed to select more than 2 players from the same premier team"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/instructionsText6TxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"/>
+    <Button
+        android:layout_below="@+id/instructionsText6TxtView"
         android:text="Back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
