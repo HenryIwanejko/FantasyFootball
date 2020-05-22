@@ -28,7 +28,7 @@ namespace FantasyFootballSQLDB
 
         public int GetNextFantasyTeamId()
         {
-            return dbConnection.Table<FantasyTeam>().DefaultIfEmpty().Max(fTeam => fTeam == null ? 0 : fTeam.FantasyTeamID) + 1;
+            return dbConnection.Table<FantasyTeam>().DefaultIfEmpty().Max(fTeam => fTeam == null ? 0 : fTeam.FantasyTeamID);
         }
 
         public int AddFantasyTeam(FantasyTeam fantasyTeam)

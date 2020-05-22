@@ -2486,11 +2486,11 @@ namespace FantasyFootball
 			// aapt resource value: 0x7F08001F
 			public const int always = 2131230751;
 			
-			// aapt resource value: 0x7F080020
-			public const int application_name = 2131230752;
-			
 			// aapt resource value: 0x7F080001
 			public const int APPLICATION_NAME = 2131230721;
+			
+			// aapt resource value: 0x7F080020
+			public const int application_name = 2131230752;
 			
 			// aapt resource value: 0x7F080021
 			public const int async = 2131230753;
@@ -2961,85 +2961,103 @@ namespace FantasyFootball
 			public const int tag_transition_group = 2131230903;
 			
 			// aapt resource value: 0x7F0800B8
-			public const int text = 2131230904;
+			public const int teamSelectorBackBtn = 2131230904;
 			
 			// aapt resource value: 0x7F0800B9
-			public const int text1 = 2131230905;
+			public const int teamSelectorCreateTeam1Btn = 2131230905;
 			
 			// aapt resource value: 0x7F0800BA
-			public const int text2 = 2131230906;
-			
-			// aapt resource value: 0x7F0800BE
-			public const int textinput_counter = 2131230910;
-			
-			// aapt resource value: 0x7F0800BF
-			public const int textinput_error = 2131230911;
+			public const int teamSelectorCreateTeam2Btn = 2131230906;
 			
 			// aapt resource value: 0x7F0800BB
-			public const int textSpacerNoButtons = 2131230907;
+			public const int teamSelectorDeleteTeam1Btn = 2131230907;
 			
 			// aapt resource value: 0x7F0800BC
-			public const int textSpacerNoTitle = 2131230908;
+			public const int teamSelectorDeleteTeam2Btn = 2131230908;
 			
 			// aapt resource value: 0x7F0800BD
-			public const int text_input_password_toggle = 2131230909;
+			public const int teamSelectorTitleTxtView = 2131230909;
+			
+			// aapt resource value: 0x7F0800BE
+			public const int text = 2131230910;
+			
+			// aapt resource value: 0x7F0800BF
+			public const int text1 = 2131230911;
 			
 			// aapt resource value: 0x7F0800C0
-			public const int time = 2131230912;
-			
-			// aapt resource value: 0x7F0800C1
-			public const int title = 2131230913;
-			
-			// aapt resource value: 0x7F0800C2
-			public const int titleDividerNoCustom = 2131230914;
-			
-			// aapt resource value: 0x7F0800C3
-			public const int title_template = 2131230915;
+			public const int text2 = 2131230912;
 			
 			// aapt resource value: 0x7F0800C4
-			public const int top = 2131230916;
+			public const int textinput_counter = 2131230916;
 			
 			// aapt resource value: 0x7F0800C5
-			public const int topPanel = 2131230917;
+			public const int textinput_error = 2131230917;
+			
+			// aapt resource value: 0x7F0800C1
+			public const int textSpacerNoButtons = 2131230913;
+			
+			// aapt resource value: 0x7F0800C2
+			public const int textSpacerNoTitle = 2131230914;
+			
+			// aapt resource value: 0x7F0800C3
+			public const int text_input_password_toggle = 2131230915;
 			
 			// aapt resource value: 0x7F0800C6
-			public const int touch_outside = 2131230918;
+			public const int time = 2131230918;
 			
 			// aapt resource value: 0x7F0800C7
-			public const int transition_current_scene = 2131230919;
+			public const int title = 2131230919;
 			
 			// aapt resource value: 0x7F0800C8
-			public const int transition_layout_save = 2131230920;
+			public const int titleDividerNoCustom = 2131230920;
 			
 			// aapt resource value: 0x7F0800C9
-			public const int transition_position = 2131230921;
+			public const int title_template = 2131230921;
 			
 			// aapt resource value: 0x7F0800CA
-			public const int transition_scene_layoutid_cache = 2131230922;
+			public const int top = 2131230922;
 			
 			// aapt resource value: 0x7F0800CB
-			public const int transition_transform = 2131230923;
+			public const int topPanel = 2131230923;
 			
 			// aapt resource value: 0x7F0800CC
-			public const int uniform = 2131230924;
+			public const int touch_outside = 2131230924;
 			
 			// aapt resource value: 0x7F0800CD
-			public const int up = 2131230925;
+			public const int transition_current_scene = 2131230925;
 			
 			// aapt resource value: 0x7F0800CE
-			public const int useLogo = 2131230926;
+			public const int transition_layout_save = 2131230926;
 			
 			// aapt resource value: 0x7F0800CF
-			public const int view_offset_helper = 2131230927;
+			public const int transition_position = 2131230927;
 			
 			// aapt resource value: 0x7F0800D0
-			public const int visible = 2131230928;
+			public const int transition_scene_layoutid_cache = 2131230928;
 			
 			// aapt resource value: 0x7F0800D1
-			public const int withText = 2131230929;
+			public const int transition_transform = 2131230929;
 			
 			// aapt resource value: 0x7F0800D2
-			public const int wrap_content = 2131230930;
+			public const int uniform = 2131230930;
+			
+			// aapt resource value: 0x7F0800D3
+			public const int up = 2131230931;
+			
+			// aapt resource value: 0x7F0800D4
+			public const int useLogo = 2131230932;
+			
+			// aapt resource value: 0x7F0800D5
+			public const int view_offset_helper = 2131230933;
+			
+			// aapt resource value: 0x7F0800D6
+			public const int visible = 2131230934;
+			
+			// aapt resource value: 0x7F0800D7
+			public const int withText = 2131230935;
+			
+			// aapt resource value: 0x7F0800D8
+			public const int wrap_content = 2131230936;
 			
 			static Id()
 			{
@@ -3097,98 +3115,101 @@ namespace FantasyFootball
 		public partial class Layout
 		{
 			
+			// aapt resource value: 0x7F0A0000
+			public const int abc_action_bar_title_item = 2131361792;
+			
 			// aapt resource value: 0x7F0A0001
-			public const int abc_action_bar_title_item = 2131361793;
+			public const int abc_action_bar_up_container = 2131361793;
 			
 			// aapt resource value: 0x7F0A0002
-			public const int abc_action_bar_up_container = 2131361794;
+			public const int abc_action_menu_item_layout = 2131361794;
 			
 			// aapt resource value: 0x7F0A0003
-			public const int abc_action_menu_item_layout = 2131361795;
+			public const int abc_action_menu_layout = 2131361795;
 			
 			// aapt resource value: 0x7F0A0004
-			public const int abc_action_menu_layout = 2131361796;
+			public const int abc_action_mode_bar = 2131361796;
 			
 			// aapt resource value: 0x7F0A0005
-			public const int abc_action_mode_bar = 2131361797;
+			public const int abc_action_mode_close_item_material = 2131361797;
 			
 			// aapt resource value: 0x7F0A0006
-			public const int abc_action_mode_close_item_material = 2131361798;
+			public const int abc_activity_chooser_view = 2131361798;
 			
 			// aapt resource value: 0x7F0A0007
-			public const int abc_activity_chooser_view = 2131361799;
+			public const int abc_activity_chooser_view_list_item = 2131361799;
 			
 			// aapt resource value: 0x7F0A0008
-			public const int abc_activity_chooser_view_list_item = 2131361800;
+			public const int abc_alert_dialog_button_bar_material = 2131361800;
 			
 			// aapt resource value: 0x7F0A0009
-			public const int abc_alert_dialog_button_bar_material = 2131361801;
+			public const int abc_alert_dialog_material = 2131361801;
 			
 			// aapt resource value: 0x7F0A000A
-			public const int abc_alert_dialog_material = 2131361802;
+			public const int abc_alert_dialog_title_material = 2131361802;
 			
 			// aapt resource value: 0x7F0A000B
-			public const int abc_alert_dialog_title_material = 2131361803;
+			public const int abc_dialog_title_material = 2131361803;
 			
 			// aapt resource value: 0x7F0A000C
-			public const int abc_dialog_title_material = 2131361804;
+			public const int abc_expanded_menu_layout = 2131361804;
 			
 			// aapt resource value: 0x7F0A000D
-			public const int abc_expanded_menu_layout = 2131361805;
+			public const int abc_list_menu_item_checkbox = 2131361805;
 			
 			// aapt resource value: 0x7F0A000E
-			public const int abc_list_menu_item_checkbox = 2131361806;
+			public const int abc_list_menu_item_icon = 2131361806;
 			
 			// aapt resource value: 0x7F0A000F
-			public const int abc_list_menu_item_icon = 2131361807;
+			public const int abc_list_menu_item_layout = 2131361807;
 			
 			// aapt resource value: 0x7F0A0010
-			public const int abc_list_menu_item_layout = 2131361808;
+			public const int abc_list_menu_item_radio = 2131361808;
 			
 			// aapt resource value: 0x7F0A0011
-			public const int abc_list_menu_item_radio = 2131361809;
+			public const int abc_popup_menu_header_item_layout = 2131361809;
 			
 			// aapt resource value: 0x7F0A0012
-			public const int abc_popup_menu_header_item_layout = 2131361810;
+			public const int abc_popup_menu_item_layout = 2131361810;
 			
 			// aapt resource value: 0x7F0A0013
-			public const int abc_popup_menu_item_layout = 2131361811;
+			public const int abc_screen_content_include = 2131361811;
 			
 			// aapt resource value: 0x7F0A0014
-			public const int abc_screen_content_include = 2131361812;
+			public const int abc_screen_simple = 2131361812;
 			
 			// aapt resource value: 0x7F0A0015
-			public const int abc_screen_simple = 2131361813;
+			public const int abc_screen_simple_overlay_action_mode = 2131361813;
 			
 			// aapt resource value: 0x7F0A0016
-			public const int abc_screen_simple_overlay_action_mode = 2131361814;
+			public const int abc_screen_toolbar = 2131361814;
 			
 			// aapt resource value: 0x7F0A0017
-			public const int abc_screen_toolbar = 2131361815;
+			public const int abc_search_dropdown_item_icons_2line = 2131361815;
 			
 			// aapt resource value: 0x7F0A0018
-			public const int abc_search_dropdown_item_icons_2line = 2131361816;
+			public const int abc_search_view = 2131361816;
 			
 			// aapt resource value: 0x7F0A0019
-			public const int abc_search_view = 2131361817;
+			public const int abc_select_dialog_material = 2131361817;
 			
 			// aapt resource value: 0x7F0A001A
-			public const int abc_select_dialog_material = 2131361818;
+			public const int activity_admin = 2131361818;
 			
 			// aapt resource value: 0x7F0A001B
-			public const int activity_admin = 2131361819;
+			public const int activity_instructions = 2131361819;
 			
 			// aapt resource value: 0x7F0A001C
-			public const int activity_instructions = 2131361820;
+			public const int activity_main = 2131361820;
 			
 			// aapt resource value: 0x7F0A001D
-			public const int activity_main = 2131361821;
+			public const int activity_pick_team = 2131361821;
 			
 			// aapt resource value: 0x7F0A001E
-			public const int activity_pick_team = 2131361822;
+			public const int activity_register_team = 2131361822;
 			
 			// aapt resource value: 0x7F0A001F
-			public const int activity_register_team = 2131361823;
+			public const int activity_team_selector = 2131361823;
 			
 			// aapt resource value: 0x7F0A0020
 			public const int design_bottom_navigation_item = 2131361824;
@@ -3231,9 +3252,6 @@ namespace FantasyFootball
 			
 			// aapt resource value: 0x7F0A002D
 			public const int design_text_input_password_icon = 2131361837;
-			
-			// aapt resource value: 0x7F0A0000
-			public const int FantasyTeams = 2131361792;
 			
 			// aapt resource value: 0x7F0A002E
 			public const int notification_action = 2131361838;

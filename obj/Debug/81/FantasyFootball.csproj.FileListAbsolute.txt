@@ -515,3 +515,5 @@ E:\GIT\FantasyFootball\obj\Debug\81\flata\9254696B5FADAA78.flata
 E:\GIT\FantasyFootball\obj\Debug\81\flata\1ADCB7F974AD9008.flata
 E:\GIT\FantasyFootball\obj\Debug\81\flata\4E89651536ADF9D0.flata
 E:\GIT\FantasyFootball\obj\Debug\81\android\assets\SQLite-net.dll
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_team_selector.xml
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\TeamSelectionActivity.java

@@ -65,15 +65,22 @@ namespace FantasyFootball
             if (ValidateFields())
             {
                 int nextFantasyId = sqlLiteRepository.GetNextFantasyTeamId();
-                FantasyTeam fantasyTeam = new FantasyTeam(nextFantasyId, fantasyTeamName.Text, managerFirstName.Text, managerLastName.Text);
-                int dbResponse = sqlLiteRepository.AddFantasyTeam(fantasyTeam);
-                if (dbResponse == 1)
+                if (nextFantasyId < 2)
                 {
-                    StartActivity(typeof(MainActivity));
+                    FantasyTeam fantasyTeam = new FantasyTeam(nextFantasyId, fantasyTeamName.Text, managerFirstName.Text, managerLastName.Text);
+                    int dbResponse = sqlLiteRepository.AddFantasyTeam(fantasyTeam);
+                    if (dbResponse == 1)
+                    {
+                        StartActivity(typeof(MainActivity));
+                    }
+                    else
+                    {
+                        errorMessage.Text = "Error contacting the database";
+                    }
                 }
                 else
                 {
-                    errorMessage.Text = "Error contacting the database";
+                    errorMessage.Text = "Only 2 teams can be registered, delete one on the admin page to register";
                 }
             }
         }

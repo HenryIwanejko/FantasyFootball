@@ -7,6 +7,7 @@ Button;obj\Debug\81\res\layout\activity_instructions.xml
 Button;obj\Debug\81\res\layout\activity_main.xml
 Button;obj\Debug\81\res\layout\activity_pick_team.xml
 Button;obj\Debug\81\res\layout\activity_register_team.xml
+Button;obj\Debug\81\res\layout\activity_team_selector.xml
 cache-path;E:\GIT\FantasyFootball\obj\Debug\81\lp\17\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\81\res\values\colors.xml
 color;obj\Debug\81\res\values\ic_launcher_background.xml
@@ -19,6 +20,7 @@ item;obj\Debug\81\res\values\styles.xml
 LinearLayout;obj\Debug\81\res\layout\activity_admin.xml
 LinearLayout;obj\Debug\81\res\layout\activity_pick_team.xml
 LinearLayout;obj\Debug\81\res\layout\activity_register_team.xml
+LinearLayout;obj\Debug\81\res\layout\activity_team_selector.xml
 paths;E:\GIT\FantasyFootball\obj\Debug\81\lp\17\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 RelativeLayout;obj\Debug\81\res\layout\activity_instructions.xml
 RelativeLayout;obj\Debug\81\res\layout\activity_main.xml
@@ -31,3 +33,4 @@ style;obj\Debug\81\res\values\styles.xml
 TextView;obj\Debug\81\res\layout\activity_instructions.xml
 TextView;obj\Debug\81\res\layout\activity_main.xml
 TextView;obj\Debug\81\res\layout\activity_register_team.xml
+TextView;obj\Debug\81\res\layout\activity_team_selector.xml
