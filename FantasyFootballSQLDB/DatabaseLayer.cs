@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SQLite.Net;
+using SQLite;
 using System.Linq;
 
 namespace FantasyFootballSQLDB
@@ -12,7 +12,7 @@ namespace FantasyFootballSQLDB
 
         public DatabaseLayer(string dbLocation)
         {
-            dbConnection = new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), dbLocation);
+            dbConnection = new SQLiteConnection(dbLocation);
         }
 
         public Player GetPlayer(int playerId)
