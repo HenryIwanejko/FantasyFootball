@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -67,6 +67,17 @@
         android:layout_height="wrap_content"
         android:textColor="#ff000000"
         android:id="@+id/registerTeamFantasyNameTxtBx"
+        android:layout_marginBottom="20px"/>
+    <TextView
+        android:layout_below="@+id/registerTeamFantasyNameTxtBx"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/registerTeamErrorMessageTxtView"
+        android:textColor="#ffff0000"
+        android:layout_marginTop="20px"
         android:layout_marginBottom="20px"/>
     <Button
         android:text="Submit"

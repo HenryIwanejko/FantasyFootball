@@ -6,6 +6,9 @@ namespace FantasyFootballSQLDB
 {
     public interface ISQLiteRepository
     {
+        int AddFantasyTeam(FantasyTeam fantasyTeam);
+
+        int GetNextFantasyTeamId();
 
         Player GetPlayer(int playerId);
 

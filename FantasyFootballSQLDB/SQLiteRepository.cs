@@ -18,10 +18,20 @@ namespace FantasyFootballSQLDB
         {
             get
             {
-                string fileName = "db.sqlite";
-                string folderLocation = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                return Path.Combine(folderLocation, fileName);
+                string dbName = "db.sqlite";
+                string dbfolderLocation = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                return Path.Combine(dbfolderLocation, dbName);
             }
+        }
+
+        public int AddFantasyTeam(FantasyTeam fantasyTeam)
+        {
+            return dbLayer.AddFantasyTeam(fantasyTeam);
+        }
+
+        public int GetNextFantasyTeamId()
+        {
+            return dbLayer.GetNextFantasyTeamId();
         }
 
         public Player GetPlayer(int playerId)

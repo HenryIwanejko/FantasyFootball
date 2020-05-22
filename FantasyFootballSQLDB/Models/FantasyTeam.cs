@@ -15,11 +15,19 @@ namespace FantasyFootballSQLDB
 
         public string ManagerSurname { get; set; }
 
-        public string ManagerFirstname { get; set; }
+        public string ManagerFirstName { get; set; }
 
         public FantasyTeam()
         {
 
+        }
+
+        public FantasyTeam(int fantasyTeamId, string fantasyTeamName, string managerSurname, string managerFirstName)
+        {
+            FantasyTeamID = fantasyTeamId;
+            FantasyTeamName = fantasyTeamName;
+            ManagerSurname = managerSurname;
+            ManagerFirstName = managerFirstName;
         }
     }
 }

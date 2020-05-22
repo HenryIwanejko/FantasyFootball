@@ -4,6 +4,7 @@ using System.Text;
 using SQLite;
 using System.Linq;
 
+
 namespace FantasyFootballSQLDB
 {
     public class DatabaseLayer
@@ -24,5 +25,17 @@ namespace FantasyFootballSQLDB
         {
             return dbConnection.Table<Player>().ToList();
         }
+
+        public int GetNextFantasyTeamId()
+        {
+            return dbConnection.Table<FantasyTeam>().DefaultIfEmpty().Max(fTeam => fTeam == null ? 0 : fTeam.FantasyTeamID) + 1;
+        }
+
+        public int AddFantasyTeam(FantasyTeam fantasyTeam)
+        {
+            return dbConnection.Insert(fantasyTeam);
+        }
+
+        
     }
 }

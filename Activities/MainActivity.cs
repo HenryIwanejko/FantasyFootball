@@ -23,12 +23,12 @@ namespace FantasyFootball
         private void InitialiseDatabase()
         {
             var docFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var dbFile = Path.Combine(docFolder,"db.sqlite");
+            var dbFile = Path.Combine(docFolder, "db.sqlite");
             if (!File.Exists(dbFile))
             {
-                var s = Resources.OpenRawResource(Resource.Raw.FantasyTeams);
+                var dbRaw = Resources.OpenRawResource(Resource.Raw.FantasyTeams);
                 FileStream writeStream = new FileStream(dbFile, FileMode.OpenOrCreate, FileAccess.Write);
-                ReadWriteStream(s, writeStream);
+                ReadWriteStream(dbRaw, writeStream);
             }
         }
 
@@ -37,13 +37,15 @@ namespace FantasyFootball
             int length = 256;
             byte[] buffer = new byte[length];
             int bytesRead = readStream.Read(buffer, 0, length);
-            while(bytesRead > 0) {
+            while (bytesRead > 0)
+            {
                 writeStream.Write(buffer, 0, bytesRead);
                 bytesRead = readStream.Read(buffer, 0, length);
             }
             readStream.Close();
             writeStream.Close();
         }
+
 
         private void AddEventHandlers()
         {
