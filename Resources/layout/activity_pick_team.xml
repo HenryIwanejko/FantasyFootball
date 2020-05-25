@@ -1,8 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:text="Pick Teams:"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/pickTeamTitleTxtView"
+        android:textColor="#ff000000"
+        android:textStyle="bold"
+        android:textSize="75px" />
+    <TextView
+        android:text="Choosing Team:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/pickTeamChoseTeamLabelTxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"/>
+    <TextView
+        android:text="(Placeholder)"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/pickTeamChoseTeamTxtView"
+        android:textColor="#ff000000"
+        android:layout_marginBottom="20px"
+        android:textSize="60px"/>
+    <TextView
+        android:text="Position:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/pickTeamPositionLabelTxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"/>
+    <Spinner
+        android:id="@+id/pickTeamPositionSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff000000"/>
+    <TextView
+        android:text="Position:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/pickTeamPlayerLabelTxtView"
+        android:textColor="#ff000000"
+        android:layout_marginTop="20px"/>
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="1500px"
+        android:id="@+id/pickTeamPlayerSelectionLstView"
+        android:padding="10dp"
+        android:textSize="16sp">
+    </ListView>
+    <Button
+        android:text="Submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/pickTeamSubmitBtn"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px" />
     <Button
         android:text="Back"
         android:layout_width="match_parent"

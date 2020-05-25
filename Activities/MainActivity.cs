@@ -4,7 +4,7 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using System.IO;
-using FantasyFootball.Activities;
+using FantasyFootball;
 
 namespace FantasyFootball
 {

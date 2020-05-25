@@ -13,6 +13,8 @@ namespace FantasyFootballSQLDB
         Player GetPlayer(int playerId);
 
         List<Player> GetPlayers();
+
+        List<Position> GetPositions();
     }
 }
 

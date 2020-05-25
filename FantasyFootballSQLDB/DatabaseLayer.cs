@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 using System.Linq;
-
+using Android.Support.CustomTabs;
 
 namespace FantasyFootballSQLDB
 {
@@ -36,6 +36,9 @@ namespace FantasyFootballSQLDB
             return dbConnection.Insert(fantasyTeam);
         }
 
-        
+        public List<Position> GetPositions()
+        {
+            return dbConnection.Table<Position>().ToList();
+        }
     }
 }

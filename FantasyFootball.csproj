@@ -71,7 +71,6 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\PickTeamActivity.cs" />
     <Compile Include="Activities\RegisterTeamActivity.cs" />
-    <Compile Include="Activities\TeamSelectionActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Util.cs" />
@@ -150,7 +149,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_team_selector.xml" />
+    <AndroidResource Include="Resources\layout\list_item.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="FantasyFootballSQLDB\FantasyFootballSQLDB.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

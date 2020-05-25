@@ -43,5 +43,10 @@ namespace FantasyFootballSQLDB
         {
             return dbLayer.GetPlayers();
         }
+
+        public List<Position> GetPositions()
+        {
+            return dbLayer.GetPositions();
+        }
     }
 }
