@@ -21,9 +21,9 @@ namespace FantasyFootballSQLDB
             return new Player();
         }
 
-        public List<Player> GetPlayers()
+        public List<Player> GetPlayers(int positionId)
         {
-            return dbConnection.Table<Player>().ToList();
+            return dbConnection.Table<Player>().Where(player => player.PositionID == positionId).ToList();
         }
 
         public int GetNextFantasyTeamId()
@@ -39,6 +39,11 @@ namespace FantasyFootballSQLDB
         public List<Position> GetPositions()
         {
             return dbConnection.Table<Position>().ToList();
+        }
+
+        public PremierTeam GetPremierTeam(int id)
+        {
+            return dbConnection.Table<PremierTeam>().Where(premTeam => premTeam.PremierTeamID == id).FirstOrDefault();
         }
     }
 }

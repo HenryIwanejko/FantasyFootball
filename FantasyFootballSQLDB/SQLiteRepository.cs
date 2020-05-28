@@ -39,14 +39,19 @@ namespace FantasyFootballSQLDB
             return dbLayer.GetPlayer(playerId);
         }
 
-        public List<Player> GetPlayers()
+        public List<Player> GetPlayers(int positionId)
         {
-            return dbLayer.GetPlayers();
+            return dbLayer.GetPlayers(positionId);
         }
 
         public List<Position> GetPositions()
         {
             return dbLayer.GetPositions();
+        }
+
+        public PremierTeam GetPremierTeam(int id)
+        {
+            return dbLayer.GetPremierTeam(id);
         }
     }
 }

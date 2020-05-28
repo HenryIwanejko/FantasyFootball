@@ -516,4 +516,13 @@ E:\GIT\FantasyFootball\obj\Debug\81\flata\1ADCB7F974AD9008.flata
 E:\GIT\FantasyFootball\obj\Debug\81\flata\4E89651536ADF9D0.flata
 E:\GIT\FantasyFootball\obj\Debug\81\android\assets\SQLite-net.dll
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\TeamSelectionActivity.java
-E:\GIT\FantasyFootball\obj\Debug\81\res\layout\list_item.xml
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\spinner_item.xml
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\CustomListAdapter.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\CustomListAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\SpinnerAdapter.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\SpinnerAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\listview_item.xml
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\ListViewAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PlayersListViewAdapter.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PositionsSpinnerAdapter.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PositionsSpinnerAdapterViewHolder.java

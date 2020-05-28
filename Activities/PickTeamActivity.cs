@@ -11,18 +11,22 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using FantasyFootballSQLDB;
+using FantasyFootball.Adapters;
 
 namespace FantasyFootball
 {
     [Activity(Label = "PickTeamActivity")]
     public class PickTeamActivity : Activity
     {
-        private readonly SQLiteRepository sqlLiteRepository = new SQLiteRepository();
+        private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
         private Button backBtn;
         private Button submitBtn;
         private ListView playerSelectionLstView;
         private Spinner positionSpinner;
+
+        private List<Position> positions;
+        private List<Player> players;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,20 +34,13 @@ namespace FantasyFootball
             SetContentView(Resource.Layout.activity_pick_team);
             RetrieveElements();
             AddEventHandlers();
-            PopulateElements();
+            PopulateSpinner();
         }
 
-        private void PopulateElements()
+        private void PopulateSpinner()
         {
-
-            List<Position> positions = sqlLiteRepository.GetPositions();
-            List<String> positionNames = new List<String>();
-            foreach (var position in positions)
-            {
-                positionNames.Add(position.PositionName);
-            }
-            ArrayAdapter arrayAdapter = new ArrayAdapter<string>(this, Resource.Layout.list_item, positionNames);
-            positionSpinner.Adapter = arrayAdapter;
+            this.positions = sqlLiteRepository.GetPositions();
+            positionSpinner.Adapter = new PositionsSpinnerAdapter(this, positions);
         }
 
         private void RetrieveElements()
@@ -56,9 +53,22 @@ namespace FantasyFootball
 
         private void AddEventHandlers()
         {
+            positionSpinner.ItemSelected += PositionSpinner_ItemSelected;
             backBtn.Click += PickTeamActivity_Click;
             submitBtn.Click += SubmitBtn_Click;
         }
+
+        private void PopulateListView(List<Player> players)
+        {
+            playerSelectionLstView.Adapter = new PlayersListViewAdapter(this, players);
+        }
+
+        private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Position position = positions[e.Position];
+            players = sqlLiteRepository.GetPlayers(position.PositionID);
+            PopulateListView(players);
+         }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {

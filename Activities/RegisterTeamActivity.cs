@@ -17,7 +17,7 @@ namespace FantasyFootball
     [Activity(Label = "RegisterActivity")]
     public class RegisterTeamActivity : Activity
     {
-        private readonly SQLiteRepository sqlLiteRepository = new SQLiteRepository();
+        private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
         private EditText fantasyTeamName;
         private EditText managerFirstName;

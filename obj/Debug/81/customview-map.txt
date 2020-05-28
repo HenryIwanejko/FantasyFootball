@@ -21,10 +21,12 @@ LinearLayout;obj\Debug\81\res\layout\activity_admin.xml
 LinearLayout;obj\Debug\81\res\layout\activity_pick_team.xml
 LinearLayout;obj\Debug\81\res\layout\activity_register_team.xml
 LinearLayout;obj\Debug\81\res\layout\activity_team_selector.xml
+LinearLayout;obj\Debug\81\res\layout\listview_item.xml
 ListView;obj\Debug\81\res\layout\activity_pick_team.xml
 paths;E:\GIT\FantasyFootball\obj\Debug\81\lp\17\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 RelativeLayout;obj\Debug\81\res\layout\activity_instructions.xml
 RelativeLayout;obj\Debug\81\res\layout\activity_main.xml
+RelativeLayout;obj\Debug\81\res\layout\listview_item.xml
 resources;obj\Debug\81\res\values\colors.xml
 resources;obj\Debug\81\res\values\ic_launcher_background.xml
 resources;obj\Debug\81\res\values\strings.xml
@@ -38,3 +40,5 @@ TextView;obj\Debug\81\res\layout\activity_pick_team.xml
 TextView;obj\Debug\81\res\layout\activity_register_team.xml
 TextView;obj\Debug\81\res\layout\activity_team_selector.xml
 TextView;obj\Debug\81\res\layout\list_item.xml
+TextView;obj\Debug\81\res\layout\listview_item.xml
+TextView;obj\Debug\81\res\layout\spinner_item.xml
