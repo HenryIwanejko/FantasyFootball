@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using FantasyFootballSQLDB;
 using FantasyFootball.Adapters;
+using Android.Text.Method;
 
 namespace FantasyFootball
 {
@@ -20,13 +21,22 @@ namespace FantasyFootball
     {
         private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
+        private PlayersListViewAdapter listViewAdapter;
+
+        // Elements
         private Button backBtn;
         private Button submitBtn;
         private ListView playerSelectionLstView;
         private Spinner positionSpinner;
+        private TextView teamName;
 
+        // State variables
         private List<Position> positions;
         private List<Player> players;
+        private List<FantasyTeam> teams;
+        private FantasyTeam currentTeam;
+        private int positionCounter = 0;
+        private int teamCounter = 0;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,13 +44,51 @@ namespace FantasyFootball
             SetContentView(Resource.Layout.activity_pick_team);
             RetrieveElements();
             AddEventHandlers();
-            PopulateSpinner();
+            ValidateTeams();
+            SetTeamDetails();
+            PositionSelector();
         }
 
-        private void PopulateSpinner()
+        private FantasyTeam SelectInitialFantasyTeam()
         {
-            this.positions = sqlLiteRepository.GetPositions();
-            positionSpinner.Adapter = new PositionsSpinnerAdapter(this, positions);
+            int randomIndex = new Random().Next(1);
+            return teams[randomIndex];
+        }
+
+        private void ValidateTeams()
+        {
+            if (teams == null || teams.Count != 2)
+            {
+                Toast.MakeText(this, "Requires 2 teams to be registered to select teams", ToastLength.Long).Show();
+                StartActivity(typeof(MainActivity));
+            }
+        }
+
+        private void SetTeamDetails()
+        {
+            if (currentTeam == null)
+            {
+                currentTeam = SelectInitialFantasyTeam();
+            }
+            else
+            {
+                int otherTeamIndex = teams.IndexOf(currentTeam) == 0 ? 1 : 0;
+                currentTeam = teams[otherTeamIndex];
+            }
+            teamName.Text = currentTeam.FantasyTeamName;
+        }
+
+        private void PositionSelector()
+        {
+            if (positionCounter < 4)
+            {
+                Position position = positions[positionCounter];
+                positionSpinner.Adapter = new PositionsSpinnerAdapter(this, position);
+            }
+            else
+            {
+                positionSpinner.Adapter = new PositionsSpinnerAdapter(this, positions);
+            }
         }
 
         private void RetrieveElements()
@@ -49,6 +97,9 @@ namespace FantasyFootball
             submitBtn = FindViewById<Button>(Resource.Id.pickTeamSubmitBtn);
             playerSelectionLstView = FindViewById<ListView>(Resource.Id.pickTeamPlayerSelectionLstView);
             positionSpinner = FindViewById<Spinner>(Resource.Id.pickTeamPositionSpinner);
+            teamName = FindViewById<TextView>(Resource.Id.pickTeamChoseTeamTxtView);
+            this.teams = sqlLiteRepository.GetFantasyTeams();
+            this.positions = sqlLiteRepository.GetPositions();
         }
 
         private void AddEventHandlers()
@@ -58,21 +109,62 @@ namespace FantasyFootball
             submitBtn.Click += SubmitBtn_Click;
         }
 
-        private void PopulateListView(List<Player> players)
+        private void PopulateListView()
         {
-            playerSelectionLstView.Adapter = new PlayersListViewAdapter(this, players);
+            if (listViewAdapter == null)
+            {
+                listViewAdapter = new PlayersListViewAdapter(this, this.players);
+                playerSelectionLstView.Adapter = listViewAdapter;
+            }
+            else
+            {
+                listViewAdapter.UpdateData(this.players);
+            }
+        }
+
+        private void RetrievePlayerData(int positionIndex)
+        {
+            Position position = positions[positionIndex];
+            players = sqlLiteRepository.GetPlayers(position.PositionID);
         }
 
         private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            Position position = positions[e.Position];
-            players = sqlLiteRepository.GetPlayers(position.PositionID);
-            PopulateListView(players);
+            RetrievePlayerData(e.Position); 
+            PopulateListView();
          }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            SetTeamDetails();
+            if (teamCounter >= 1)
+            {
+                positionCounter += 1;
+                if (positionCounter < 5)
+                {
+                    if (positionCounter < 4)
+                    {
+                        PositionSelector();
+                        RetrievePlayerData(positionCounter);
+                        PopulateListView();
+                    }
+                    else
+                    {
+                        PositionSelector();
+                        PopulateListView();
+                    }
+                    teamCounter = 0;
+                } 
+                else
+                {
+                    Toast.MakeText(this, "5 Selected each", ToastLength.Long).Show();
+                }
+            }
+            else
+            {
+                PopulateListView();
+                teamCounter += 1;
+            }
         }
 
         private void PickTeamActivity_Click(object sender, EventArgs e)

@@ -26,6 +26,11 @@ namespace FantasyFootballSQLDB
             return dbConnection.Table<Player>().Where(player => player.PositionID == positionId).ToList();
         }
 
+        public List<FantasyTeam> GetFantasyTeams()
+        {
+            return dbConnection.Table<FantasyTeam>().ToList();
+        }
+
         public int GetNextFantasyTeamId()
         {
             return dbConnection.Table<FantasyTeam>().DefaultIfEmpty().Max(fTeam => fTeam == null ? 0 : fTeam.FantasyTeamID);

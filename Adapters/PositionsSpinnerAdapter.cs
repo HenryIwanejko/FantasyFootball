@@ -19,17 +19,25 @@ namespace FantasyFootball.Adapters
 
         private readonly List<Position> positions;
 
+        private readonly Position position;
+
         public PositionsSpinnerAdapter(Activity context, List<Position> positions)
         {
             this.context = context;
             this.positions = positions;
         }
 
+        public PositionsSpinnerAdapter(Activity context, Position position)
+        {
+            this.context = context;
+            this.position = position;
+        } 
+
         public override Position this[int position] 
         { 
             get
             {
-                return positions[position];
+                return positions != null ? positions[position] : this.position;
             }
         }
 
@@ -60,7 +68,7 @@ namespace FantasyFootball.Adapters
                 view.Tag = holder;
             }
 
-            holder.TextField.Text = positions[position].PositionName;
+            holder.TextField.Text = positions != null ? positions[position].PositionName : this.position.PositionName;
 
             return view;
         }
@@ -69,7 +77,7 @@ namespace FantasyFootball.Adapters
         {
             get
             {
-                return positions.Count;
+                return positions != null ? positions.Count : 1;
             }
         }
     }

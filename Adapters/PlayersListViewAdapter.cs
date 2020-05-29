@@ -78,6 +78,11 @@ namespace FantasyFootball.Adapters
                 return players.Count;
             }
         }
+
+        public void UpdateData(List<Player> players)
+        {
+            this.players = players;
+        }
     }
 
     class ListViewAdapterViewHolder : Java.Lang.Object

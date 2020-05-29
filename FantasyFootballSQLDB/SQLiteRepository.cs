@@ -29,6 +29,11 @@ namespace FantasyFootballSQLDB
             return dbLayer.AddFantasyTeam(fantasyTeam);
         }
 
+        public List<FantasyTeam> GetFantasyTeams()
+        {
+            return dbLayer.GetFantasyTeams();
+        }
+
         public int GetNextFantasyTeamId()
         {
             return dbLayer.GetNextFantasyTeamId();
