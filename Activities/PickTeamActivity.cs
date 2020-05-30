@@ -44,9 +44,11 @@ namespace FantasyFootball
             SetContentView(Resource.Layout.activity_pick_team);
             RetrieveElements();
             AddEventHandlers();
-            ValidateTeams();
-            SetTeamDetails();
-            PositionSelector();
+            if (ValidateTeams())
+            {
+                SetTeamDetails();
+                PositionSelector();
+            }
         }
 
         private FantasyTeam SelectInitialFantasyTeam()
@@ -55,13 +57,15 @@ namespace FantasyFootball
             return teams[randomIndex];
         }
 
-        private void ValidateTeams()
+        private bool ValidateTeams()
         {
             if (teams == null || teams.Count != 2)
             {
                 Toast.MakeText(this, "Requires 2 teams to be registered to select teams", ToastLength.Long).Show();
                 StartActivity(typeof(MainActivity));
+                return false;
             }
+            return true;
         }
 
         private void SetTeamDetails()
@@ -119,6 +123,7 @@ namespace FantasyFootball
             else
             {
                 listViewAdapter.UpdateData(this.players);
+                listViewAdapter.NotifyDataSetChanged();
             }
         }
 
@@ -130,9 +135,9 @@ namespace FantasyFootball
 
         private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            RetrievePlayerData(e.Position); 
+            RetrievePlayerData(positionCounter < 4 ? positionCounter : e.Position);
             PopulateListView();
-         }
+        }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {

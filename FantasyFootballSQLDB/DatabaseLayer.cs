@@ -4,6 +4,7 @@ using System.Text;
 using SQLite;
 using System.Linq;
 using Android.Support.CustomTabs;
+using Javax.Crypto.Spec;
 
 namespace FantasyFootballSQLDB
 {
@@ -44,6 +45,11 @@ namespace FantasyFootballSQLDB
         public List<Position> GetPositions()
         {
             return dbConnection.Table<Position>().ToList();
+        }
+
+        public int GetPostionId(string positionName)
+        {
+            return dbConnection.Table<Position>().Where(position => position.PositionName == positionName).FirstOrDefault().PositionID;
         }
 
         public PremierTeam GetPremierTeam(int id)

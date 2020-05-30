@@ -19,6 +19,8 @@ namespace FantasyFootballSQLDB
         List<Position> GetPositions();
 
         PremierTeam GetPremierTeam(int id);
+
+        int GetPostionId(string positionName);
     }
 }
 

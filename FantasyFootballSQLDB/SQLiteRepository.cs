@@ -54,6 +54,11 @@ namespace FantasyFootballSQLDB
             return dbLayer.GetPositions();
         }
 
+        public int GetPostionId(string positionName)
+        {
+            return dbLayer.GetPostionId(positionName);
+        }
+
         public PremierTeam GetPremierTeam(int id)
         {
             return dbLayer.GetPremierTeam(id);
