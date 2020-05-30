@@ -13,6 +13,7 @@ using Android.Widget;
 using FantasyFootballSQLDB;
 using FantasyFootball.Adapters;
 using Android.Text.Method;
+using System.Data.Entity.Migrations.Model;
 
 namespace FantasyFootball
 {
@@ -20,8 +21,6 @@ namespace FantasyFootball
     public class PickTeamActivity : Activity
     {
         private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
-
-        private PlayersListViewAdapter listViewAdapter;
 
         // Elements
         private Button backBtn;
@@ -37,6 +36,9 @@ namespace FantasyFootball
         private FantasyTeam currentTeam;
         private int positionCounter = 0;
         private int teamCounter = 0;
+        private Player selectedPlayer;
+
+        Dictionary<FantasyTeam, List<Player>> userTeams = new Dictionary<FantasyTeam, List<Player>>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,7 +48,7 @@ namespace FantasyFootball
             AddEventHandlers();
             if (ValidateTeams())
             {
-                SetTeamDetails();
+                InitialiseTeams();
                 PositionSelector();
             }
         }
@@ -68,17 +70,20 @@ namespace FantasyFootball
             return true;
         }
 
+        private void InitialiseTeams()
+        {
+            currentTeam = SelectInitialFantasyTeam();
+            foreach (var team in teams)
+            {
+                userTeams.Add(team, new List<Player>());
+            }
+            teamName.Text = currentTeam.FantasyTeamName;
+        }
+
         private void SetTeamDetails()
         {
-            if (currentTeam == null)
-            {
-                currentTeam = SelectInitialFantasyTeam();
-            }
-            else
-            {
-                int otherTeamIndex = teams.IndexOf(currentTeam) == 0 ? 1 : 0;
-                currentTeam = teams[otherTeamIndex];
-            }
+            int otherTeamIndex = teams.IndexOf(currentTeam) == 0 ? 1 : 0;
+            currentTeam = teams[otherTeamIndex];
             teamName.Text = currentTeam.FantasyTeamName;
         }
 
@@ -111,20 +116,17 @@ namespace FantasyFootball
             positionSpinner.ItemSelected += PositionSpinner_ItemSelected;
             backBtn.Click += PickTeamActivity_Click;
             submitBtn.Click += SubmitBtn_Click;
+            playerSelectionLstView.ItemClick += PlayerSelectionLstView_ItemClick;
+        }
+
+        private void PlayerSelectionLstView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selectedPlayer = this.players[e.Position];
         }
 
         private void PopulateListView()
         {
-            if (listViewAdapter == null)
-            {
-                listViewAdapter = new PlayersListViewAdapter(this, this.players);
-                playerSelectionLstView.Adapter = listViewAdapter;
-            }
-            else
-            {
-                listViewAdapter.UpdateData(this.players);
-                listViewAdapter.NotifyDataSetChanged();
-            }
+            playerSelectionLstView.Adapter = new PlayersListViewAdapter(this, this.players);
         }
 
         private void RetrievePlayerData(int positionIndex)
@@ -140,6 +142,27 @@ namespace FantasyFootball
         }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedPlayer != null) 
+            {
+                AddPlayerToTeam();
+                SetNextPlayerSelection();
+            }
+            else
+            {
+                Toast.MakeText(this, "Please select a player", ToastLength.Short).Show();
+            }
+
+        }
+
+        private void AddPlayerToTeam()
+        {
+            userTeams[currentTeam].Add(selectedPlayer);
+            this.players.Remove(selectedPlayer);
+            this.selectedPlayer = null;
+        }
+
+        private void SetNextPlayerSelection()
         {
             SetTeamDetails();
             if (teamCounter >= 1)
