@@ -129,10 +129,22 @@ namespace FantasyFootball
             playerSelectionLstView.Adapter = new PlayersListViewAdapter(this, this.players);
         }
 
+        private void CleansePlayerData()
+        {
+            foreach(var team in userTeams.Values)
+            {
+                foreach(var player in team)
+                {
+                    players.RemoveAll(x => x.PlayerID == player.PlayerID);
+                }
+            }
+        }
+
         private void RetrievePlayerData(int positionIndex)
         {
             Position position = positions[positionIndex];
             players = sqlLiteRepository.GetPlayers(position.PositionID);
+            CleansePlayerData();
         }
 
         private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
