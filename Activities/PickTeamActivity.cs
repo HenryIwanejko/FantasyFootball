@@ -13,6 +13,7 @@ using FantasyFootballSQLDB;
 using FantasyFootball.Adapters;
 using Android.Text.Method;
 using System.Data.Entity.Migrations.Model;
+using Javax.Crypto.Spec;
 
 namespace FantasyFootball
 {
@@ -128,6 +129,7 @@ namespace FantasyFootball
             }
             else
             {
+                positions.Remove(positions[0]);
                 positionSpinner.Adapter = new PositionsSpinnerAdapter(this, positions);
             }
         }
