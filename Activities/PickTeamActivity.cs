@@ -166,9 +166,22 @@ namespace FantasyFootball
         {
             foreach(var team in userTeams.Values)
             {
+                Dictionary<int, int> premierTeams = new Dictionary<int, int>();
                 foreach(var player in team)
                 {
+                    if (premierTeams.ContainsKey(player.PremierTeamID))
+                    {
+                        premierTeams[player.PremierTeamID] += 1;
+                    }
+                    else
+                    {
+                        premierTeams.Add(player.PremierTeamID, 1);
+                    }
                     players.RemoveAll(x => x.PlayerID == player.PlayerID);
+                    if (premierTeams[player.PremierTeamID] >= 2)
+                    {
+                        players.RemoveAll(x => x.PremierTeamID == player.PremierTeamID);
+                    }
                 }
             }
         }
