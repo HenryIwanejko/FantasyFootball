@@ -1895,25 +1895,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/HIwanejko/.nuget/packages/": {}
+    "C:\\Users\\Henry\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/HIwanejko/Documents/GIT/FantasyFootball/FantasyFootball.csproj",
+      "projectUniqueName": "E:\\GIT\\FantasyFootball\\FantasyFootball.csproj",
       "projectName": "FantasyFootball",
-      "projectPath": "/Users/HIwanejko/Documents/GIT/FantasyFootball/FantasyFootball.csproj",
-      "packagesPath": "/Users/HIwanejko/.nuget/packages/",
-      "outputPath": "/Users/HIwanejko/Documents/GIT/FantasyFootball/obj/",
+      "projectPath": "E:\\GIT\\FantasyFootball\\FantasyFootball.csproj",
+      "packagesPath": "C:\\Users\\Henry\\.nuget\\packages\\",
+      "outputPath": "E:\\GIT\\FantasyFootball\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "/Users/HIwanejko/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Henry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid81"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

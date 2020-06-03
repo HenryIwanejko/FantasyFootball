@@ -36,6 +36,7 @@ namespace FantasyFootball
         private FantasyTeam currentTeam;
         private int positionCounter = 0;
         private int teamCounter = 0;
+        private int selectionCounter = 0;
         private Player selectedPlayer;
 
         Dictionary<FantasyTeam, List<Player>> userTeams = new Dictionary<FantasyTeam, List<Player>>();
@@ -82,9 +83,26 @@ namespace FantasyFootball
 
         private void SetTeamDetails()
         {
-            int otherTeamIndex = teams.IndexOf(currentTeam) == 0 ? 1 : 0;
-            currentTeam = teams[otherTeamIndex];
+            int teamIndex = SwitchPlayerIndex(teams.IndexOf(currentTeam));
+            if (selectionCounter == 1) 
+            {
+                if (positionCounter == 1 || positionCounter == 3)
+                {
+                    teamIndex = SwitchPlayerIndex(teamIndex);
+                }
+                selectionCounter = 0;
+            }
+            else
+            {
+                selectionCounter += 1;
+            }
+            currentTeam = teams[teamIndex];
             teamName.Text = currentTeam.FantasyTeamName;
+        }
+
+        private int SwitchPlayerIndex(int currentTeamIndex)
+        {
+            return currentTeamIndex == 0 ? 1 : 0;
         }
 
         private void PositionSelector()
@@ -164,7 +182,6 @@ namespace FantasyFootball
             {
                 Toast.MakeText(this, "Please select a player", ToastLength.Short).Show();
             }
-
         }
 
         private void AddPlayerToTeam()
