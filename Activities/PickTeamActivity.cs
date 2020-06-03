@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -28,6 +27,7 @@ namespace FantasyFootball
         private ListView playerSelectionLstView;
         private Spinner positionSpinner;
         private TextView teamName;
+        private TextView teamCost;
 
         // State variables
         private List<Position> positions;
@@ -78,6 +78,7 @@ namespace FantasyFootball
             {
                 userTeams.Add(team, new List<Player>());
             }
+            teamCost.Text = "Total Team Cost: £0m";
             teamName.Text = currentTeam.FantasyTeamName;
         }
 
@@ -97,7 +98,20 @@ namespace FantasyFootball
                 selectionCounter += 1;
             }
             currentTeam = teams[teamIndex];
+            decimal teamPrice = CalculateTeamCost();
+            teamCost.Text = $"Total Team Cost: £{teamPrice}m";
             teamName.Text = currentTeam.FantasyTeamName;
+        }
+
+        private decimal CalculateTeamCost()
+        {
+            decimal total = 0;
+            List<Player> userPlayers = userTeams.FirstOrDefault(x => x.Key.FantasyTeamID == currentTeam.FantasyTeamID).Value;
+            foreach (var player in userPlayers)
+            {
+                total += player.Price;
+            }
+            return total;
         }
 
         private int SwitchPlayerIndex(int currentTeamIndex)
@@ -125,6 +139,7 @@ namespace FantasyFootball
             playerSelectionLstView = FindViewById<ListView>(Resource.Id.pickTeamPlayerSelectionLstView);
             positionSpinner = FindViewById<Spinner>(Resource.Id.pickTeamPositionSpinner);
             teamName = FindViewById<TextView>(Resource.Id.pickTeamChoseTeamTxtView);
+            teamCost = FindViewById<TextView>(Resource.Id.pickTeamTeamCostTxtView);
             this.teams = sqlLiteRepository.GetFantasyTeams();
             this.positions = sqlLiteRepository.GetPositions();
         }
