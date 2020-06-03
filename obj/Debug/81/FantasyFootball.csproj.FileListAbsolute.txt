@@ -521,3 +521,6 @@ E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\ListViewAd
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PlayersListViewAdapter.java
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PositionsSpinnerAdapter.java
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PositionsSpinnerAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_pick_teams_completion.xml
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\TeamCompletionActivity.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\assets\Newtonsoft.Json.dll

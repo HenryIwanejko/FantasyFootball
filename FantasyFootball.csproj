@@ -66,6 +66,7 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\PickTeamActivity.cs" />
     <Compile Include="Activities\RegisterTeamActivity.cs" />
+    <Compile Include="Activities\TeamCompletionActivity.cs" />
     <Compile Include="Adapters\PlayersListViewAdapter.cs" />
     <Compile Include="Adapters\PositionsSpinnerAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -111,6 +112,9 @@
     <PackageReference Include="Microsoft.Data.Sqlite">
       <Version>3.1.4</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.7.335</Version>
     </PackageReference>
@@ -152,6 +156,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\listview_item.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_pick_teams_completion.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

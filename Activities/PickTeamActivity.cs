@@ -14,6 +14,8 @@ using FantasyFootball.Adapters;
 using Android.Text.Method;
 using System.Data.Entity.Migrations.Model;
 using Javax.Crypto.Spec;
+using Newtonsoft.Json;
+using FantasyFootball.Activities;
 
 namespace FantasyFootball
 {
@@ -244,7 +246,10 @@ namespace FantasyFootball
                 } 
                 else
                 {
-                    Toast.MakeText(this, "5 Selected each", ToastLength.Long).Show();
+                    Intent pickTeamActivity = new Intent(this, typeof(TeamCompletionActivity));
+                    pickTeamActivity.PutExtra("teamData", JsonConvert.SerializeObject(userTeams));
+                    StartActivity(pickTeamActivity);
+                    this.Finish();
                 }
             }
             else

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DY+C/me87WJ/qp6IZemq2FEtHUs21CrYxlPgag3Kuh5q95zLDev3+vNSjXlaR9Sn9hzjFSonbLV79aBbc8Bl8w==",
+  "dgSpecHash": "Euxmqe0WNJGlHp6EIiSGkZj795rngGoPTXplvyu+nkBEg64cY9WcA/yIlLpK4q0e0ZcKcXpNb51Ol3Sg6LMb4Q==",
   "success": true,
   "projectFilePath": "E:\\GIT\\FantasyFootball\\FantasyFootball.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Henry\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\microsoft.data.sqlite\\3.1.4\\microsoft.data.sqlite.3.1.4.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\microsoft.data.sqlite.core\\3.1.4\\microsoft.data.sqlite.core.3.1.4.nupkg.sha512",
+    "C:\\Users\\Henry\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Henry\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",

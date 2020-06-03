@@ -6,6 +6,7 @@ public class MonoPackageManager_Resources {
 		"EntityFramework.dll",
 		"EntityFramework.SqlServer.dll",
 		"Microsoft.Data.Sqlite.dll",
+		"Newtonsoft.Json.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",
