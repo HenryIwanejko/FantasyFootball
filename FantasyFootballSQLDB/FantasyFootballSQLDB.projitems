@@ -9,15 +9,18 @@
     <Import_RootNamespace>FantasyFootballSQLDB</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)DatabaseLayer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\FantasyTeam.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ISQLiteRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Player.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Position.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\PremierTeam.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SQLiteRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\DatabaseLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Models\FantasyTeam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\ISQLiteRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Models\Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Models\Position.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\Models\PremierTeam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\SQLiteRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PickTeamService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\RegisterTeamService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Util.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Database\Models\" />
   </ItemGroup>
 </Project>

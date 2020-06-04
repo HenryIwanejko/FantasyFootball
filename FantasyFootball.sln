@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyFootball", "FantasyFootball.csproj", "{37F050B0-4F0B-42E1-9497-5776930B33DE}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FantasyFootballSQLDB", "FantasyFootballSQLDB\FantasyFootballSQLDB.shproj", "{F6699A38-C1F7-4A1E-89E8-9A59D08D30F5}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FantasyFootballShared", "FantasyFootballSQLDB\FantasyFootballShared.shproj", "{F6699A38-C1F7-4A1E-89E8-9A59D08D30F5}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using FantasyFootballSQLDB;
+using FantasyFootballShared;
 using FantasyFootball.Adapters;
 using Newtonsoft.Json;
 

@@ -9,13 +9,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using FantasyFootballSQLDB;
+using FantasyFootballShared;
 using FantasyFootball.Adapters;
-using Android.Text.Method;
-using System.Data.Entity.Migrations.Model;
-using Javax.Crypto.Spec;
 using Newtonsoft.Json;
+using FantasyFootballShared.Services;
 using FantasyFootball.Activities;
+using FantasyFootballShared.Utilities;
 
 namespace FantasyFootball
 {
@@ -42,6 +41,8 @@ namespace FantasyFootball
         private int selectionCounter = 0;
         private Player selectedPlayer;
 
+        private PickTeamService pickTeamService = new PickTeamService();
+
         Dictionary<FantasyTeam, List<Player>> userTeams = new Dictionary<FantasyTeam, List<Player>>();
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -65,7 +66,7 @@ namespace FantasyFootball
 
         private bool ValidateTeams()
         {
-            if (teams == null || teams.Count != 2)
+            if (pickTeamService.ValidateFantasyTeams(teams))
             {
                 Toast.MakeText(this, "Requires 2 teams to be registered to select teams", ToastLength.Long).Show();
                 StartActivity(typeof(MainActivity));
@@ -77,49 +78,17 @@ namespace FantasyFootball
         private void InitialiseTeams()
         {
             currentTeam = SelectInitialFantasyTeam();
-            foreach (var team in teams)
-            {
-                userTeams.Add(team, new List<Player>());
-            }
+            pickTeamService.InitialiseUserTeamData(teams, userTeams);
             teamCost.Text = "Total Team Cost: £0m";
             teamName.Text = currentTeam.FantasyTeamName;
         }
 
         private void SetTeamDetails()
         {
-            int teamIndex = SwitchPlayerIndex(teams.IndexOf(currentTeam));
-            if (selectionCounter == 1) 
-            {
-                if (positionCounter == 1 || positionCounter == 3)
-                {
-                    teamIndex = SwitchPlayerIndex(teamIndex);
-                }
-                selectionCounter = 0;
-            }
-            else
-            {
-                selectionCounter += 1;
-            }
-            currentTeam = teams[teamIndex];
-            decimal teamPrice = CalculateTeamCost();
+            currentTeam = pickTeamService.SetTeamDetails(teams, currentTeam, ref positionCounter, ref selectionCounter);
+            decimal teamPrice = Util.CalculateTeamCost(userTeams, currentTeam);
             teamCost.Text = $"Total Team Cost: £{teamPrice}m";
             teamName.Text = currentTeam.FantasyTeamName;
-        }
-
-        private decimal CalculateTeamCost()
-        {
-            decimal total = 0;
-            List<Player> userPlayers = userTeams.FirstOrDefault(x => x.Key.FantasyTeamID == currentTeam.FantasyTeamID).Value;
-            foreach (var player in userPlayers)
-            {
-                total += player.Price;
-            }
-            return total;
-        }
-
-        private int SwitchPlayerIndex(int currentTeamIndex)
-        {
-            return currentTeamIndex == 0 ? 1 : 0;
         }
 
         private void PositionSelector()
@@ -166,35 +135,10 @@ namespace FantasyFootball
             playerSelectionLstView.Adapter = new PlayersListViewAdapter(this, this.players);
         }
 
-        private void CleansePlayerData()
-        {
-            foreach(var team in userTeams.Values)
-            {
-                Dictionary<int, int> premierTeams = new Dictionary<int, int>();
-                foreach(var player in team)
-                {
-                    if (premierTeams.ContainsKey(player.PremierTeamID))
-                    {
-                        premierTeams[player.PremierTeamID] += 1;
-                    }
-                    else
-                    {
-                        premierTeams.Add(player.PremierTeamID, 1);
-                    }
-                    players.RemoveAll(x => x.PlayerID == player.PlayerID);
-                    if (premierTeams[player.PremierTeamID] >= 2)
-                    {
-                        players.RemoveAll(x => x.PremierTeamID == player.PremierTeamID);
-                    }
-                }
-            }
-        }
-
         private void RetrievePlayerData(int positionIndex)
         {
             Position position = positions[positionIndex];
-            players = sqlLiteRepository.GetPlayers(position.PositionID);
-            CleansePlayerData();
+            this.players = pickTeamService.RetrieveAndCleansePlayerData(userTeams, position);
         }
 
         private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
