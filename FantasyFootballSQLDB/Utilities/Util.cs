@@ -38,5 +38,20 @@ namespace FantasyFootballShared.Utilities
             return total;
         }
 
+        public static decimal CalculateTeamCost(List<Player> players)
+        {
+            decimal total = 0;
+            foreach (var player in players)
+            {
+                total += player.Price;
+            }
+            return total;
+        }
+
+        public static decimal CalculateAveragePlayerCost(List<Player> players)
+        {
+            decimal totalTeamCost = Util.CalculateTeamCost(players);
+            return totalTeamCost / players.Count;
+        }
     }
 }

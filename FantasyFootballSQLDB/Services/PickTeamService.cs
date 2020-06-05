@@ -5,6 +5,8 @@ using Android.Widget;
 using FantasyFootballShared.Utilities;
 using Java.Security;
 using FantasyFootballShared;
+using System.Collections;
+using System.Linq;
 
 namespace FantasyFootballShared.Services
 {
@@ -78,5 +80,27 @@ namespace FantasyFootballShared.Services
             }
             return players;
         }
+
+        public List<FantasyTeam> GetFantasyTeams()
+        {
+            return _sqlLiteRepository.GetFantasyTeams();
+        }
+
+        public List<Position> GetPositions()
+        {
+            return _sqlLiteRepository.GetPositions();
+        }
+
+        public Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>> PackageUpData(Dictionary<FantasyTeam, List<Player>> userTeams)
+        {
+            Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>> dto = new Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>>();
+            for (int i = 1; i < userTeams.Count + 1; i++)
+            {
+                KeyValuePair<FantasyTeam, List<Player>> team = userTeams.FirstOrDefault(x => x.Key.FantasyTeamID == i);
+                dto.Add(i - 1, team);
+            }
+            return dto;
+        }
+
     }
 }

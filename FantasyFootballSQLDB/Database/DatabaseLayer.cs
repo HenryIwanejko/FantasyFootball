@@ -56,5 +56,10 @@ namespace FantasyFootballShared
         {
             return dbConnection.Table<PremierTeam>().Where(premTeam => premTeam.PremierTeamID == id).FirstOrDefault();
         }
+
+        public Position GetPosition(int positionId)
+        {
+            return dbConnection.Table<Position>().Where(Position => Position.PositionID == positionId).FirstOrDefault();
+        }
     }
 }

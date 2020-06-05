@@ -14,7 +14,7 @@ namespace FantasyFootball.Adapters
 {
     public class PlayersListViewAdapter : BaseAdapter<Player>
     {
-        private ISQLiteRepository sqLiteRepository = new SQLiteRepository();
+        private ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
         Activity context;
         List<Player> players;
@@ -59,13 +59,15 @@ namespace FantasyFootball.Adapters
                 holder.PlayerName = view.FindViewById<TextView>(Resource.Id.listViewItemNameField);
                 holder.Price = view.FindViewById<TextView>(Resource.Id.listViewItemPriceField);
                 holder.PremierTeam = view.FindViewById<TextView>(Resource.Id.listViewItemPremierTeamField);
+                holder.Position = view.FindViewById<TextView>(Resource.Id.listViewItemPositionField);
                 view.Tag = holder;
             }
 
             Player player = players[position];
             holder.PlayerName.Text = player.Firstname != null ?  $"{player.Firstname} {player.Surname}" : player.Surname;
             holder.Price.Text = $"£{player.Price}m";
-            holder.PremierTeam.Text = sqLiteRepository.GetPremierTeam(player.PremierTeamID).PremierTeamName;
+            holder.PremierTeam.Text = sqlLiteRepository.GetPremierTeam(player.PremierTeamID).PremierTeamName;
+            holder.Position.Text = sqlLiteRepository.GetPosition(player.PositionID).PositionName;
 
             return view;
         }
@@ -86,5 +88,7 @@ namespace FantasyFootball.Adapters
         public TextView Price { get; set; }
 
         public TextView PremierTeam { get; set; }
+
+        public TextView Position { get; set; }
     }
 }

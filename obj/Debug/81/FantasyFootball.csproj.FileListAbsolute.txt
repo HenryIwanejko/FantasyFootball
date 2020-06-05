@@ -230,6 +230,12 @@ C:\Users\Henry\source\repos\FantasyFootball\obj\Debug\81\stamp\_ConvertResources
 C:\Users\Henry\source\repos\FantasyFootball\obj\Debug\81\stamp\_GenerateJavaStubs.stamp
 C:\Users\Henry\source\repos\FantasyFootball\obj\Debug\81\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Henry\source\repos\FantasyFootball\obj\Debug\81\stamp\_ResolveLibraryProjectImports.stamp
+E:\GIT\FantasyFootball\bin\Debug\FantasyFootball.dll
+E:\GIT\FantasyFootball\bin\Debug\FantasyFootball.pdb
+E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball.apk
+E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball.aab
+E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball-Signed.aab
+E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball-Signed.apk
 E:\GIT\FantasyFootball\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 E:\GIT\FantasyFootball\obj\Debug\81\build.props
 E:\GIT\FantasyFootball\obj\Debug\81\adb.props
@@ -253,12 +259,6 @@ E:\GIT\FantasyFootball\obj\Debug\81\flata\compiled.flata
 E:\GIT\FantasyFootball\obj\Debug\81\R.txt
 E:\GIT\FantasyFootball\obj\Debug\81\R.cs.flag
 E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.csproj.CoreCompileInputs.cache
-E:\GIT\FantasyFootball\bin\Debug\FantasyFootball.dll
-E:\GIT\FantasyFootball\bin\Debug\FantasyFootball.pdb
-E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball.apk
-E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball.aab
-E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball-Signed.aab
-E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball-Signed.apk
 E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.dll
 E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.pdb
 E:\GIT\FantasyFootball\obj\Debug\81\android\bin\com.companyname.fantasyfootball.apk

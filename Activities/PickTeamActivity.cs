@@ -21,8 +21,6 @@ namespace FantasyFootball
     [Activity(Label = "PickTeamActivity")]
     public class PickTeamActivity : Activity
     {
-        private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
-
         // Elements
         private Button backBtn;
         private Button submitBtn;
@@ -113,8 +111,8 @@ namespace FantasyFootball
             positionSpinner = FindViewById<Spinner>(Resource.Id.pickTeamPositionSpinner);
             teamName = FindViewById<TextView>(Resource.Id.pickTeamChoseTeamTxtView);
             teamCost = FindViewById<TextView>(Resource.Id.pickTeamTeamCostTxtView);
-            this.teams = sqlLiteRepository.GetFantasyTeams();
-            this.positions = sqlLiteRepository.GetPositions();
+            this.teams = pickTeamService.GetFantasyTeams();
+            this.positions = pickTeamService.GetPositions();
         }
 
         private void AddEventHandlers()
@@ -191,7 +189,8 @@ namespace FantasyFootball
                 else
                 {
                     Intent pickTeamActivity = new Intent(this, typeof(TeamCompletionActivity));
-                    pickTeamActivity.PutExtra("teamData", JsonConvert.SerializeObject(userTeams));
+                    Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>> dto = pickTeamService.PackageUpData(userTeams);
+                    pickTeamActivity.PutExtra("teamData", JsonConvert.SerializeObject(dto));
                     StartActivity(pickTeamActivity);
                     this.Finish();
                 }

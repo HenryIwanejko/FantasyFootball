@@ -21,6 +21,8 @@ namespace FantasyFootballShared
         PremierTeam GetPremierTeam(int id);
 
         int GetPostionId(string positionName);
+
+        Position GetPosition(int positionId);
     }
 }
 
