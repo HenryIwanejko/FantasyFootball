@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/teamCompletionErrorMessage1Field"
                 android:layout_gravity="top|right"
+                android:textColor="#ffff0000"
                 android:padding="10dp"
                 android:textSize="16sp">
             </TextView>
@@ -144,6 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/teamCompletionErrorMessage2Field"
+                android:textColor="#ffff0000"
                 android:layout_gravity="top|right"
                 android:padding="10dp"
                 android:textSize="16sp">

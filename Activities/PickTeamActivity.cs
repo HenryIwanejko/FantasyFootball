@@ -12,7 +12,6 @@ using Android.Widget;
 using FantasyFootballShared;
 using FantasyFootball.Adapters;
 using Newtonsoft.Json;
-using FantasyFootballShared.Services;
 using FantasyFootball.Activities;
 using FantasyFootballShared.Utilities;
 

@@ -39,6 +39,7 @@ ScrollView;obj\Debug\81\res\layout\activity_register_team.xml
 Spinner;obj\Debug\81\res\layout\activity_pick_team.xml
 string;obj\Debug\81\res\values\strings.xml
 style;obj\Debug\81\res\values\styles.xml
+TextView;obj\Debug\81\res\layout\activity_admin.xml
 TextView;obj\Debug\81\res\layout\activity_instructions.xml
 TextView;obj\Debug\81\res\layout\activity_main.xml
 TextView;obj\Debug\81\res\layout\activity_pick_team.xml
