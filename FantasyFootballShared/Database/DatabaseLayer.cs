@@ -10,16 +10,16 @@ namespace FantasyFootballShared
 {
     public class DatabaseLayer
     {
-        private SQLiteConnection dbConnection;
+        private readonly SQLiteConnection dbConnection;
 
         public DatabaseLayer(string dbLocation)
         {
             dbConnection = new SQLiteConnection(dbLocation);
         }
 
-        public Player GetPlayer(int playerId)
+        public List<Player> GetAllPlayers()
         {
-            return new Player();
+            return dbConnection.Table<Player>().ToList();
         }
 
         public List<Player> GetPlayers(int positionId)

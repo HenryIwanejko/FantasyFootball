@@ -12,8 +12,6 @@ namespace FantasyFootballShared
 
         int GetNextFantasyTeamId();
 
-        Player GetPlayer(int playerId);
-
         List<Player> GetPlayers(int positionId);
 
         List<Position> GetPositions();
@@ -25,6 +23,8 @@ namespace FantasyFootballShared
         Position GetPosition(int positionId);
 
         int ResetFantasyTeams();
+
+        List<Player> GetAllPlayers();
     }
 }
 
