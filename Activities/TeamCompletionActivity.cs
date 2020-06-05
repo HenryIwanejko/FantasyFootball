@@ -27,6 +27,10 @@ namespace FantasyFootball.Activities
         private TextView team2TotalCostTextView;
         private TextView team1AverageCostTextView;
         private TextView team2AverageCostTextView;
+        private TextView team1BudgetTextView;
+        private TextView team2BudgetTextView;
+        private TextView team1ErrorTextView;
+        private TextView team2ErrorTextView;
         private Button backBtn;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -41,16 +45,32 @@ namespace FantasyFootball.Activities
         private void PopulateFields()
         {
             Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>> userTeams = JsonConvert.DeserializeObject<Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>>>(Intent.GetStringExtra("teamData"));
+
             KeyValuePair<FantasyTeam, List<Player>> team1 = userTeams[0];
             team1TextView.Text = team1.Key.FantasyTeamName;
-            team1ListView.Adapter = new PlayersListViewAdapter(this, team1.Value);
-            team1TotalCostTextView.Text = $"Total Cost: £{Util.CalculateTeamCost(team1.Value)}m";
-            team1AverageCostTextView.Text = $"Average Player Cost: £{Util.CalculateAveragePlayerCost(team1.Value)}m";
+            PlayersListViewAdapter team1PlayersAdapter = new PlayersListViewAdapter(this, team1.Value);
+            team1ListView.Adapter = team1PlayersAdapter;
+            team1PlayersAdapter.NotifyDataSetChanged();
+
             KeyValuePair<FantasyTeam, List<Player>> team2 = userTeams[1];
             team2TextView.Text = team2.Key.FantasyTeamName;
-            team2ListView.Adapter = new PlayersListViewAdapter(this, team2.Value);
+            PlayersListViewAdapter team2PlayersAdapter = new PlayersListViewAdapter(this, team2.Value);
+            team2ListView.Adapter = team2PlayersAdapter;
+            team2PlayersAdapter.NotifyDataSetChanged();
+
+            team1TotalCostTextView.Text = $"Total Cost: £{Util.CalculateTeamCost(team1.Value)}m";
+            decimal averagePlayerCost1 = Util.CalculateAveragePlayerCost(team1.Value);
+            decimal team1Budget = Util.CalculateTeamBudget(team1.Value);
+            team1AverageCostTextView.Text = $"Average Player Cost: £{averagePlayerCost1}m";
+            team1BudgetTextView.Text = $"Team Budget: {team1Budget}";
+            team1ErrorTextView.Text = $"{Util.VerifyTeamBudget(team1Budget, averagePlayerCost1)}";
+            
             team2TotalCostTextView.Text = $"Total Cost: £{Util.CalculateTeamCost(team2.Value)}m";
-            team2AverageCostTextView.Text = $"Average Player Cost: £{Util.CalculateAveragePlayerCost(team2.Value)}m";
+            decimal averagePlayerCost2 = Util.CalculateAveragePlayerCost(team2.Value);
+            decimal team2Budget = Util.CalculateTeamBudget(team2.Value);
+            team2AverageCostTextView.Text = $"Average Player Cost: £{averagePlayerCost2}m";
+            team2BudgetTextView.Text = $"Team Budget: {team2Budget}";
+            team2ErrorTextView.Text = $"{Util.VerifyTeamBudget(team2Budget, averagePlayerCost2)}";
         }
 
         private void AddEventHandlers()
@@ -74,6 +94,10 @@ namespace FantasyFootball.Activities
             team2TotalCostTextView = FindViewById<TextView>(Resource.Id.teamCompletionTeam2CostField);
             team1AverageCostTextView = FindViewById<TextView>(Resource.Id.teamCompletionAveragePlayerCost1Field);
             team2AverageCostTextView = FindViewById<TextView>(Resource.Id.teamCompletionAveragePlayerCost2Field);
+            team1BudgetTextView = FindViewById<TextView>(Resource.Id.teamCompletionBudget1Field);
+            team2BudgetTextView = FindViewById<TextView>(Resource.Id.teamCompletionBudget2Field);
+            team1ErrorTextView = FindViewById<TextView>(Resource.Id.teamCompletionErrorMessage1Field);
+            team2ErrorTextView = FindViewById<TextView>(Resource.Id.teamCompletionErrorMessage2Field);
             backBtn = FindViewById<Button>(Resource.Id.teamCompletionBackBtn);
         }
     }

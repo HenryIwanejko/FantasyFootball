@@ -37,7 +37,7 @@ namespace FantasyFootballShared.Utilities
             }
             return total;
         }
-
+        // move into service class
         public static decimal CalculateTeamCost(List<Player> players)
         {
             decimal total = 0;
@@ -52,6 +52,21 @@ namespace FantasyFootballShared.Utilities
         {
             decimal totalTeamCost = Util.CalculateTeamCost(players);
             return totalTeamCost / players.Count;
+        }
+
+        public static decimal CalculateTeamBudget(List<Player> players)
+        {
+            decimal averagePlayer = CalculateAveragePlayerCost(players);
+            return (averagePlayer * 5) + 1;
+        }
+
+        public static string VerifyTeamBudget(decimal budget, decimal totalCost)
+        {
+            if (budget >= totalCost)
+            {
+                return "";
+            }
+            return "Exceeded budget";
         }
     }
 }
