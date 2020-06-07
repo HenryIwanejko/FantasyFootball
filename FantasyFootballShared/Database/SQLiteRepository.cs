@@ -73,5 +73,15 @@ namespace FantasyFootballShared
         {
             return dbLayer.GetAllPlayers();
         }
+
+        public int DeletePlayer(int playerId)
+        {
+            return dbLayer.DeletePlayer(playerId);
+        }
+
+        public List<PremierTeam> GetPremierTeams()
+        {
+            return dbLayer.GetPremierTeams();
+        }
     }
 }

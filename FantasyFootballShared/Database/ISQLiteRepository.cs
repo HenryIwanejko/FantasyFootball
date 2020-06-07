@@ -25,6 +25,10 @@ namespace FantasyFootballShared
         int ResetFantasyTeams();
 
         List<Player> GetAllPlayers();
+
+        int DeletePlayer(int playerId);
+
+        List<PremierTeam> GetPremierTeams();
     }
 }
 

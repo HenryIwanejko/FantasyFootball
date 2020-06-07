@@ -22,7 +22,10 @@ namespace FantasyFootball.Activities
         private Button addPlayerBtn;
         private Button removePlayerBtn;
 
-        private ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
+        private List<Player> players;
+        private Player selectedPlayer = null;
+
+        private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,11 +47,58 @@ namespace FantasyFootball.Activities
         private void AddEventHandlers()
         {
             FindViewById<Button>(Resource.Id.adminEditPlayerMainBackBtn).Click += BackBtn_Click;
+            removePlayerBtn.Click += RemovePlayerBtn_Click;
+            playerListView.ItemClick += PlayerListView_ItemClick;
+            addPlayerBtn.Click += AddPlayerBtn_Click;
+            editPlayerBtn.Click += EditPlayerBtn_Click;
+        }
+
+        private void EditPlayerBtn_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(AddOrEditPlayerActivity));
+        }
+
+        private void AddPlayerBtn_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(AddOrEditPlayerActivity));
+        }
+
+        private void PlayerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selectedPlayer = players[e.Position];
+        }
+
+        private void RemovePlayerBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedPlayer != null)
+            {
+                int dbResponse = sqlLiteRepository.DeletePlayer(selectedPlayer.PlayerID);
+                if (dbResponse == 1)
+                {
+                    Toast.MakeText(this, $"Deleted {selectedPlayer.Surname}", ToastLength.Short).Show();
+                    UpdateListViewData();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Error contacting database", ToastLength.Short).Show();
+                }
+                selectedPlayer = null;
+            }
+            else
+            {
+                Toast.MakeText(this, "Please Select a Player", ToastLength.Short).Show();
+            }
         }
 
         private void PopulateElements()
         {
-            List<Player> players = sqlLiteRepository.GetAllPlayers();
+            players = sqlLiteRepository.GetAllPlayers();
+            UpdateListViewData();
+        }
+
+        private void UpdateListViewData()
+        {
+            players = sqlLiteRepository.GetAllPlayers();
             playerListView.Adapter = new PlayersListViewAdapter(this, players);
         }
 

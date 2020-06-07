@@ -61,6 +61,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\AddOrEditPlayerActivity.cs" />
     <Compile Include="Activities\AdminActivity.cs" />
     <Compile Include="Activities\EditPlayerMainActivity.cs" />
     <Compile Include="Activities\InstructionsActivity.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Activities\RegisterTeamActivity.cs" />
     <Compile Include="Activities\TeamCompletionActivity.cs" />
     <Compile Include="Adapters\PlayersListViewAdapter.cs" />
+    <Compile Include="Adapters\PremierTeamsSpinnerAdapter .cs" />
     <Compile Include="Adapters\PositionsSpinnerAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,6 +168,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_edit_player_main.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_add_or_edit_player.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

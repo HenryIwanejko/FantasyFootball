@@ -525,3 +525,8 @@ E:\GIT\FantasyFootball\obj\Debug\81\stamp\_GeneratePackageManagerJava.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_ResolveLibraryProjectImports.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_edit_player_main.xml
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\EditPlayerMainActivity.java
+E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.csprojAssemblyReference.cache
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_add_or_edit_player.xml
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamsSpinnerAdapter.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamsSpinnerAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\AddOrEditPlayerActivity.java

@@ -78,5 +78,15 @@ namespace FantasyFootballShared
             }
             return 1;
         }
+
+        public int DeletePlayer(int playerId)
+        {
+            return dbConnection.Table<Player>().Delete(x => x.PlayerID == playerId);
+        }
+
+        public List<PremierTeam> GetPremierTeams()
+        {
+            return dbConnection.Table<PremierTeam>().ToList();
+        }
     }
 }
