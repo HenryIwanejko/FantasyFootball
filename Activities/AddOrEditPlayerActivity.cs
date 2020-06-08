@@ -11,12 +11,14 @@ using Android.Widget;
 using FantasyFootball.Adapters;
 using FantasyFootballShared;
 using FantasyFootballShared.Utilities;
+using Newtonsoft.Json;
 
 namespace FantasyFootball.Activities
 {
     [Activity(Label = "AddOrEditPlayerActivity")]
     public class AddOrEditPlayerActivity : Activity
     {
+        private TextView title;
         private EditText firstnameEditView;
         private EditText surnameEditView;
         private EditText priceEditView;
@@ -29,6 +31,8 @@ namespace FantasyFootball.Activities
         private List<PremierTeam> premierTeams;
         private PremierTeam selectedPremTeam;
         private Position selectedPosition;
+        private string action;
+        private Player editingPlayer;
 
         private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
@@ -39,10 +43,12 @@ namespace FantasyFootball.Activities
             RetrieveElements();
             AddEventHandlers();
             PopulateElements();
+            DetermineAction();
         }
 
         private void RetrieveElements()
         {
+            title = FindViewById<TextView>(Resource.Id.addOrEditPlayerTitleTxtView);
             firstnameEditView = FindViewById<EditText>(Resource.Id.addOrEditPlayerFirstnameEditView);
             surnameEditView = FindViewById<EditText>(Resource.Id.addOrEditPlayerSurnameEditView);
             priceEditView = FindViewById<EditText>(Resource.Id.addOrEditPlayerPriceEditView);
@@ -58,6 +64,31 @@ namespace FantasyFootball.Activities
             submitButton.Click += SubmitButton_Click;
             positionSpinner.ItemSelected += PositionSpinner_ItemSelected;
             premierTeamSpinner.ItemSelected += PremierTeamSpinner_ItemSelected;
+        }
+
+        private void DetermineAction()
+        {
+            this.action = Intent.GetStringExtra("action");
+            if (!Util.ValidateText(action) || action == Util.AddPlayer)
+            {
+                this.action = Util.AddPlayer;
+            }
+            else
+            {
+                this.action = Util.EditPlayer;
+                SetPlayerData();
+            }
+            title.Text = $"{action} Player:";
+        }
+
+        private void SetPlayerData()
+        {
+            this.editingPlayer = JsonConvert.DeserializeObject<Player>(Intent.GetStringExtra("PlayerData"));
+            firstnameEditView.Text = editingPlayer.Firstname;
+            surnameEditView.Text = editingPlayer.Surname;
+            priceEditView.Text = editingPlayer.Price.ToString();
+            positionSpinner.SetSelection(editingPlayer.PositionID - 1);
+            premierTeamSpinner.SetSelection(editingPlayer.PremierTeamID - 1);
         }
 
         private void PremierTeamSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -80,11 +111,22 @@ namespace FantasyFootball.Activities
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            decimal price = 0;
-            if (Util.ValidateText(firstnameEditView.Text, surnameEditView.Text, priceEditView.Text) && Util.ValidateDecimal(priceEditView.Text, ref price))
+            if (action == Util.AddPlayer)
             {
-                // Move into service class
-                Player newPlayer = new Player(surnameEditView.Text, firstnameEditView.Text,selectedPremTeam.PremierTeamID, selectedPosition.PositionID, price);
+                AddPlayer();
+            }
+            else
+            {
+                EditPlayer();
+            }
+        }
+
+        private void AddPlayer()
+        {
+            decimal price = 0;
+            if (ValidateFields(ref price))
+            {
+                Player newPlayer = new Player(surnameEditView.Text, firstnameEditView.Text, selectedPremTeam.PremierTeamID, selectedPosition.PositionID, price);
                 if (sqlLiteRepository.AddPlayer(newPlayer) == 1)
                 {
                     Toast.MakeText(this, $"Player {surnameEditView.Text} has been added", ToastLength.Short).Show();
@@ -96,15 +138,49 @@ namespace FantasyFootball.Activities
                     Toast.MakeText(this, "Error adding player to database", ToastLength.Short).Show();
                 }
             }
-            else
+        }
+
+        private void EditPlayer()
+        {
+            decimal price = 0;
+            if (ValidateFields(ref price) && editingPlayer != null)
             {
-                Toast.MakeText(this, "Please enter valid fields", ToastLength.Short).Show();
+                UpdatePlayerInfo(price);
+                if (sqlLiteRepository.UpdatePlayer(editingPlayer) == 1)
+                {
+                    Toast.MakeText(this, $"Player {surnameEditView.Text} has been edited", ToastLength.Short).Show();
+                    StartActivity(typeof(EditPlayerMainActivity));
+                    Finish();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Error editing player info in the database", ToastLength.Short).Show();
+                }
             }
+        }
+
+        private void UpdatePlayerInfo(decimal price)
+        {
+            editingPlayer.Firstname = firstnameEditView.Text;
+            editingPlayer.Surname = surnameEditView.Text;
+            editingPlayer.Price = price;
+            editingPlayer.PositionID = selectedPosition.PositionID;
+            editingPlayer.PremierTeamID = selectedPremTeam.PremierTeamID;
+        }
+
+        private bool ValidateFields(ref decimal price)
+        {
+            if (Util.ValidateText(firstnameEditView.Text, surnameEditView.Text, priceEditView.Text) && Util.ValidateDecimal(priceEditView.Text, ref price))
+            {
+                return true;
+            }
+            Toast.MakeText(this, "Please enter valid fields", ToastLength.Short).Show();
+            return false;
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(AdminActivity));
+            StartActivity(typeof(EditPlayerMainActivity));
             Finish();
         }
     }

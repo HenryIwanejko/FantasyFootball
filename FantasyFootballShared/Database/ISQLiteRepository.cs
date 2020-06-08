@@ -31,6 +31,8 @@ namespace FantasyFootballShared
         List<PremierTeam> GetPremierTeams();
 
         int AddPlayer(Player player);
+
+        int UpdatePlayer(Player player);
     }
 }
 

@@ -239,6 +239,7 @@ E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball-Signed.apk
 E:\GIT\FantasyFootball\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 E:\GIT\FantasyFootball\obj\Debug\81\build.props
 E:\GIT\FantasyFootball\obj\Debug\81\adb.props
+E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.csprojAssemblyReference.cache
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_BuildLibraryImportsCache.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\res.flag
 E:\GIT\FantasyFootball\obj\Debug\81\flata\F6D8C997BD079CD3.stamp
@@ -295,6 +296,8 @@ E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_admin.xml
 E:\GIT\FantasyFootball\obj\Debug\81\res\layout\spinner_item.xml
 E:\GIT\FantasyFootball\obj\Debug\81\res\layout\listview_item.xml
 E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_pick_teams_completion.xml
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_edit_player_main.xml
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_add_or_edit_player.xml
 E:\GIT\FantasyFootball\obj\Debug\81\uploadflags.txt
 E:\GIT\FantasyFootball\obj\Debug\81\resolvedassemblies.hash
 E:\GIT\FantasyFootball\obj\Debug\81\android\assets\EntityFramework.dll
@@ -439,6 +442,10 @@ E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\ListViewAd
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PlayersListViewAdapter.java
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PositionsSpinnerAdapter.java
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PositionsSpinnerAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamsSpinnerAdapter.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamsSpinnerAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\AddOrEditPlayerActivity.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\EditPlayerMainActivity.java
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\TeamCompletionActivity.java
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64f93f58a0eb79c9a6\AdminActivity.java
 E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64f93f58a0eb79c9a6\InstructionsActivity.java
@@ -523,10 +530,3 @@ E:\GIT\FantasyFootball\obj\Debug\81\stamp\_CopyConfigFiles.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_GenerateJavaStubs.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_GeneratePackageManagerJava.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_ResolveLibraryProjectImports.stamp
-E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_edit_player_main.xml
-E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\EditPlayerMainActivity.java
-E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.csprojAssemblyReference.cache
-E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_add_or_edit_player.xml
-E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamsSpinnerAdapter.java
-E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamsSpinnerAdapterViewHolder.java
-E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\AddOrEditPlayerActivity.java

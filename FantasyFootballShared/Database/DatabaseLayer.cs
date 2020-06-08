@@ -93,5 +93,10 @@ namespace FantasyFootballShared
         {
             return dbConnection.Insert(player);
         }
+
+        public int UpdatePlayer(Player player)
+        {
+            return dbConnection.Update(player);
+        }
     }
 }

@@ -11,6 +11,8 @@ using Android.Views;
 using Android.Widget;
 using FantasyFootballShared;
 using FantasyFootball.Adapters;
+using Newtonsoft.Json;
+using FantasyFootballShared.Utilities;
 
 namespace FantasyFootball.Activities
 {
@@ -55,12 +57,31 @@ namespace FantasyFootball.Activities
 
         private void EditPlayerBtn_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(AddOrEditPlayerActivity));
+            if (selectedPlayer != null)
+            {
+                Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
+                addPlayerActivity.PutExtra("action", Util.EditPlayer);
+                addPlayerActivity.PutExtra("PlayerData", JsonConvert.SerializeObject(selectedPlayer));
+                StartActivity(addPlayerActivity);
+            }
+            else
+            {
+                Toast.MakeText(this, "Please Select a Player", ToastLength.Short).Show();
+            }
         }
 
         private void AddPlayerBtn_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(AddOrEditPlayerActivity));
+            if (selectedPlayer != null)
+            {
+                Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
+                addPlayerActivity.PutExtra("action", Util.AddPlayer);
+                StartActivity(addPlayerActivity);
+            }
+            else
+            {
+                Toast.MakeText(this, "Please Select a Player", ToastLength.Short).Show();
+            }
         }
 
         private void PlayerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

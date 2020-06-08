@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\PickTeamCompletionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PickTeamService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\RegisterTeamService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Methods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Util.cs" />
   </ItemGroup>
   <ItemGroup>
