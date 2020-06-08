@@ -29,6 +29,8 @@ namespace FantasyFootballShared
         int DeletePlayer(int playerId);
 
         List<PremierTeam> GetPremierTeams();
+
+        int AddPlayer(Player player);
     }
 }
 

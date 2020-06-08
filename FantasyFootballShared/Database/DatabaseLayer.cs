@@ -88,5 +88,10 @@ namespace FantasyFootballShared
         {
             return dbConnection.Table<PremierTeam>().ToList();
         }
+
+        public int AddPlayer(Player player)
+        {
+            return dbConnection.Insert(player);
+        }
     }
 }

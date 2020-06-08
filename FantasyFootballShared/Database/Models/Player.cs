@@ -28,9 +28,13 @@ namespace FantasyFootballShared
             
         }
 
-        public Player(int playerId, string surname, string firstname, decimal price)
+        public Player(string surname, string firstname, int premierTeamId, int positionId, decimal price)
         {
-                
+            Surname = surname;
+            Firstname = firstname;
+            PremierTeamID = premierTeamId;
+            PositionID = positionId;
+            Price = price;
         }
     }
 }

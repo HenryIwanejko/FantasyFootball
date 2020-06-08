@@ -27,6 +27,8 @@ namespace FantasyFootball.Activities
 
         private List<Position> positions;
         private List<PremierTeam> premierTeams;
+        private PremierTeam selectedPremTeam;
+        private Position selectedPosition;
 
         private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
@@ -43,7 +45,7 @@ namespace FantasyFootball.Activities
         {
             firstnameEditView = FindViewById<EditText>(Resource.Id.addOrEditPlayerFirstnameEditView);
             surnameEditView = FindViewById<EditText>(Resource.Id.addOrEditPlayerSurnameEditView);
-            priceEditView = FindViewById<EditText>(Resource.Id.addOrEditPlayerSurnameEditView);
+            priceEditView = FindViewById<EditText>(Resource.Id.addOrEditPlayerPriceEditView);
             positionSpinner = FindViewById<Spinner>(Resource.Id.addOrEditPlayerPositionSpinner);
             premierTeamSpinner = FindViewById<Spinner>(Resource.Id.addOrEditPlayerPremierTeamSpinner);
             submitButton = FindViewById<Button>(Resource.Id.addOrEditPlayerSubmitBtn);
@@ -54,6 +56,18 @@ namespace FantasyFootball.Activities
         {
             backBtn.Click += BackBtn_Click;
             submitButton.Click += SubmitButton_Click;
+            positionSpinner.ItemSelected += PositionSpinner_ItemSelected;
+            premierTeamSpinner.ItemSelected += PremierTeamSpinner_ItemSelected;
+        }
+
+        private void PremierTeamSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            selectedPremTeam = premierTeams[e.Position];
+        }
+
+        private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            selectedPosition = positions[e.Position];
         }
 
         private void PopulateElements()
@@ -66,9 +80,21 @@ namespace FantasyFootball.Activities
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (Util.ValidateText(firstnameEditView.Text, surnameEditView.Text, priceEditView.Text))
+            decimal price = 0;
+            if (Util.ValidateText(firstnameEditView.Text, surnameEditView.Text, priceEditView.Text) && Util.ValidateDecimal(priceEditView.Text, ref price))
             {
-
+                // Move into service class
+                Player newPlayer = new Player(surnameEditView.Text, firstnameEditView.Text,selectedPremTeam.PremierTeamID, selectedPosition.PositionID, price);
+                if (sqlLiteRepository.AddPlayer(newPlayer) == 1)
+                {
+                    Toast.MakeText(this, $"Player {surnameEditView.Text} has been added", ToastLength.Short).Show();
+                    StartActivity(typeof(EditPlayerMainActivity));
+                    Finish();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Error adding player to database", ToastLength.Short).Show();
+                }
             }
             else
             {

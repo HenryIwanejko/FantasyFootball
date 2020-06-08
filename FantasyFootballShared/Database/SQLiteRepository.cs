@@ -83,5 +83,10 @@ namespace FantasyFootballShared
         {
             return dbLayer.GetPremierTeams();
         }
+
+        public int AddPlayer(Player player)
+        {
+            return dbLayer.AddPlayer(player);
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Print;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -27,6 +28,15 @@ namespace FantasyFootballShared.Utilities
             return true;
         }
 
+        public static bool ValidateDecimal(string value, ref decimal result)
+        {
+            if (decimal.TryParse(value, out result))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static decimal CalculateTeamCost(Dictionary<FantasyTeam, List<Player>> userTeams, FantasyTeam currentTeam)
         {
             decimal total = 0;
@@ -37,36 +47,6 @@ namespace FantasyFootballShared.Utilities
             }
             return total;
         }
-        // move into service class
-        public static decimal CalculateTeamCost(List<Player> players)
-        {
-            decimal total = 0;
-            foreach (var player in players)
-            {
-                total += player.Price;
-            }
-            return total;
-        }
-
-        public static decimal CalculateAveragePlayerCost(List<Player> players)
-        {
-            decimal totalTeamCost = Util.CalculateTeamCost(players);
-            return totalTeamCost / players.Count;
-        }
-
-        public static decimal CalculateTeamBudget(List<Player> players)
-        {
-            decimal averagePlayer = CalculateAveragePlayerCost(players);
-            return (averagePlayer * 5) + 1;
-        }
-
-        public static string VerifyTeamBudget(decimal budget, decimal totalCost)
-        {
-            if (budget >= totalCost)
-            {
-                return "";
-            }
-            return "Exceeded budget";
-        }
+     
     }
 }
