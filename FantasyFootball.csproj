@@ -61,6 +61,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\AddOrEditPremierTeamActivity.cs" />
     <Compile Include="Activities\AddOrEditPlayerActivity.cs" />
     <Compile Include="Activities\AdminActivity.cs" />
     <Compile Include="Activities\EditPremierTeamMainActivity.cs" />
@@ -180,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_edit_premier_team_main.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_add_or_edit_premier_team.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>

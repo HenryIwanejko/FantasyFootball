@@ -99,5 +99,15 @@ namespace FantasyFootballShared
         {
             return dbLayer.DeletePremierTeam(premierTeamId);
         }
+
+        public int AddPremierTeam(PremierTeam premierTeam)
+        {
+            return dbLayer.AddPremierTeam(premierTeam);
+        }
+
+        public int UpdatePremierTeam(PremierTeam premierTeam)
+        {
+            return dbLayer.UpdatePremierTeam(premierTeam);
+        }
     }
 }

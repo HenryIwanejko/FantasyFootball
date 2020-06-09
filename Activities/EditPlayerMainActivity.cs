@@ -60,7 +60,7 @@ namespace FantasyFootball.Activities
             if (selectedPlayer != null)
             {
                 Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
-                addPlayerActivity.PutExtra("action", Util.EditPlayer);
+                addPlayerActivity.PutExtra("action", Util.Edit);
                 addPlayerActivity.PutExtra("PlayerData", JsonConvert.SerializeObject(selectedPlayer));
                 StartActivity(addPlayerActivity);
             }
@@ -72,16 +72,9 @@ namespace FantasyFootball.Activities
 
         private void AddPlayerBtn_Click(object sender, EventArgs e)
         {
-            if (selectedPlayer != null)
-            {
-                Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
-                addPlayerActivity.PutExtra("action", Util.AddPlayer);
-                StartActivity(addPlayerActivity);
-            }
-            else
-            {
-                Toast.MakeText(this, "Please Select a Player", ToastLength.Short).Show();
-            }
+            Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
+            addPlayerActivity.PutExtra("action", Util.Add);
+            StartActivity(addPlayerActivity);
         }
 
         private void PlayerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

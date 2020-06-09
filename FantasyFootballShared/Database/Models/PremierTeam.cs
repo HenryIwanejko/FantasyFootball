@@ -18,9 +18,9 @@ namespace FantasyFootballShared
 
         }
 
-        public PremierTeam(int premierTeamId, string premierTeamName)
+        public PremierTeam(string premierTeamName)
         {
-
+            PremierTeamName = premierTeamName;
         }
     }
 }

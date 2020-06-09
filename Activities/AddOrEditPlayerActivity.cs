@@ -69,13 +69,13 @@ namespace FantasyFootball.Activities
         private void DetermineAction()
         {
             this.action = Intent.GetStringExtra("action");
-            if (!Util.ValidateText(action) || action == Util.AddPlayer)
+            if (!Util.ValidateText(action) || action == Util.Add)
             {
-                this.action = Util.AddPlayer;
+                this.action = Util.Add;
             }
             else
             {
-                this.action = Util.EditPlayer;
+                this.action = Util.Edit;
                 SetPlayerData();
             }
             title.Text = $"{action} Player:";
@@ -111,7 +111,7 @@ namespace FantasyFootball.Activities
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (action == Util.AddPlayer)
+            if (action == Util.Add)
             {
                 AddPlayer();
             }

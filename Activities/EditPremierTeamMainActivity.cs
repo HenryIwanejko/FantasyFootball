@@ -49,19 +49,19 @@ namespace FantasyFootball.Activities
         private void AddEventHandlers()
         {
             FindViewById<Button>(Resource.Id.adminEditPremierTeamMainBackBtn).Click += BackBtn_Click;
-            removePremierTeamBtn.Click += RemovePlayerBtn_Click;
-            premierTeamListView.ItemClick += PlayerListView_ItemClick;
-            addPremierTeamBtn.Click += AddPlayerBtn_Click;
-            editPremierTeamBtn.Click += EditPlayerBtn_Click;
+            removePremierTeamBtn.Click += RemovePremierTeamBtn_Click;
+            premierTeamListView.ItemClick += PremierTeamListView_ItemClick;
+            addPremierTeamBtn.Click += AddPremierTeamBtn_Click;
+            editPremierTeamBtn.Click += EditPremierTeamBtn_Click;
         }
 
-        private void EditPlayerBtn_Click(object sender, EventArgs e)
+        private void EditPremierTeamBtn_Click(object sender, EventArgs e)
         {
             if (selectedPremierTeam != null)
             {
-                Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
-                addPlayerActivity.PutExtra("action", Util.EditPlayer);
-                addPlayerActivity.PutExtra("PlayerData", JsonConvert.SerializeObject(selectedPremierTeam));
+                Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPremierTeamActivity));
+                addPlayerActivity.PutExtra("action", Util.Edit);
+                addPlayerActivity.PutExtra("PremierTeamData", JsonConvert.SerializeObject(selectedPremierTeam));
                 StartActivity(addPlayerActivity);
             }
             else
@@ -70,26 +70,19 @@ namespace FantasyFootball.Activities
             }
         }
 
-        private void AddPlayerBtn_Click(object sender, EventArgs e)
+        private void AddPremierTeamBtn_Click(object sender, EventArgs e)
         {
-            if (selectedPremierTeam != null)
-            {
-                Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
-                addPlayerActivity.PutExtra("action", Util.AddPlayer);
-                StartActivity(addPlayerActivity);
-            }
-            else
-            {
-                Toast.MakeText(this, "Please Select a Player", ToastLength.Short).Show();
-            }
+            Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPremierTeamActivity));
+            addPlayerActivity.PutExtra("action", Util.Add);
+            StartActivity(addPlayerActivity);
         }
 
-        private void PlayerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void PremierTeamListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selectedPremierTeam = premierTeams[e.Position];
         }
 
-        private void RemovePlayerBtn_Click(object sender, EventArgs e)
+        private void RemovePremierTeamBtn_Click(object sender, EventArgs e)
         {
             if (selectedPremierTeam != null)
             {

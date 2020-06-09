@@ -103,5 +103,15 @@ namespace FantasyFootballShared
         {
             return dbConnection.Table<PremierTeam>().Delete(x => x.PremierTeamID == premierTeamId);
         }
+
+        public int AddPremierTeam(PremierTeam premierTeam)
+        {
+            return dbConnection.Insert(premierTeam);
+        }
+
+        public int UpdatePremierTeam(PremierTeam premierTeam)
+        {
+            return dbConnection.Update(premierTeam);
+        }
     }
 }

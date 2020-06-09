@@ -35,6 +35,10 @@ namespace FantasyFootballShared
         int UpdatePlayer(Player player);
 
         int DeletePremierTeam(int premierTeamId);
+
+        int AddPremierTeam(PremierTeam premierTeam);
+
+        int UpdatePremierTeam(PremierTeam premierTeam);
     }
 }
 

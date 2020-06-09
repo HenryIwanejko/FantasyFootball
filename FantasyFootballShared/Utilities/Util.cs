@@ -16,9 +16,9 @@ namespace FantasyFootballShared.Utilities
 {
     public class Util
     {
-        public readonly static string AddPlayer = "Add";
+        public readonly static string Add = "Add";
 
-        public readonly static string EditPlayer = "Edit";
+        public readonly static string Edit = "Edit";
 
         public static bool ValidateText(params string[] args)
         {
