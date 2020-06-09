@@ -24,15 +24,15 @@ namespace FantasyFootball.Activities
         private Button addPremierTeamBtn;
         private Button removePremierTeamBtn;
 
-        private List<Player> premierTeam;
-        private Player selectedPremierTeam = null;
+        private List<PremierTeam> premierTeams;
+        private PremierTeam selectedPremierTeam = null;
 
         private readonly ISQLiteRepository sqlLiteRepository = new SQLiteRepository();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_edit_player_main);
+            SetContentView(Resource.Layout.activity_edit_premier_team_main);
             RetrieveElements();
             AddEventHandlers();
             PopulateElements();
@@ -41,14 +41,14 @@ namespace FantasyFootball.Activities
         private void RetrieveElements()
         {
             premierTeamListView = FindViewById<ListView>(Resource.Id.adminEditPremierTeamMainPremierTeamsLstView);
-            editPremierTeamBtn = FindViewById<Button>(Resource.Id.adminEditPlayerMainEditBtn);
-            addPremierTeamBtn = FindViewById<Button>(Resource.Id.adminEditPlayerMainAddBtn);
-            removePremierTeamBtn = FindViewById<Button>(Resource.Id.adminEditPlayerMainRemoveBtn);
+            editPremierTeamBtn = FindViewById<Button>(Resource.Id.adminEditPremierTeamMainEditBtn);
+            addPremierTeamBtn = FindViewById<Button>(Resource.Id.adminEditPremierTeamMainAddBtn);
+            removePremierTeamBtn = FindViewById<Button>(Resource.Id.adminEditPremierTeamMainRemoveBtn);
         }
 
         private void AddEventHandlers()
         {
-            FindViewById<Button>(Resource.Id.adminEditPlayerMainBackBtn).Click += BackBtn_Click;
+            FindViewById<Button>(Resource.Id.adminEditPremierTeamMainBackBtn).Click += BackBtn_Click;
             removePremierTeamBtn.Click += RemovePlayerBtn_Click;
             premierTeamListView.ItemClick += PlayerListView_ItemClick;
             addPremierTeamBtn.Click += AddPlayerBtn_Click;
@@ -57,11 +57,11 @@ namespace FantasyFootball.Activities
 
         private void EditPlayerBtn_Click(object sender, EventArgs e)
         {
-            if (selectedPlayer != null)
+            if (selectedPremierTeam != null)
             {
                 Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
                 addPlayerActivity.PutExtra("action", Util.EditPlayer);
-                addPlayerActivity.PutExtra("PlayerData", JsonConvert.SerializeObject(selectedPlayer));
+                addPlayerActivity.PutExtra("PlayerData", JsonConvert.SerializeObject(selectedPremierTeam));
                 StartActivity(addPlayerActivity);
             }
             else
@@ -72,7 +72,7 @@ namespace FantasyFootball.Activities
 
         private void AddPlayerBtn_Click(object sender, EventArgs e)
         {
-            if (selectedPlayer != null)
+            if (selectedPremierTeam != null)
             {
                 Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
                 addPlayerActivity.PutExtra("action", Util.AddPlayer);
@@ -86,24 +86,24 @@ namespace FantasyFootball.Activities
 
         private void PlayerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            selectedPlayer = players[e.Position];
+            selectedPremierTeam = premierTeams[e.Position];
         }
 
         private void RemovePlayerBtn_Click(object sender, EventArgs e)
         {
-            if (selectedPlayer != null)
+            if (selectedPremierTeam != null)
             {
-                int dbResponse = sqlLiteRepository.DeletePlayer(selectedPlayer.PlayerID);
+                int dbResponse = sqlLiteRepository.DeletePremierTeam(selectedPremierTeam.PremierTeamID);
                 if (dbResponse == 1)
                 {
-                    Toast.MakeText(this, $"Deleted {selectedPlayer.Surname}", ToastLength.Short).Show();
+                    Toast.MakeText(this, $"Deleted {selectedPremierTeam.PremierTeamName}", ToastLength.Short).Show();
                     UpdateListViewData();
                 }
                 else
                 {
                     Toast.MakeText(this, "Error contacting database", ToastLength.Short).Show();
                 }
-                selectedPlayer = null;
+                selectedPremierTeam = null;
             }
             else
             {
@@ -113,14 +113,14 @@ namespace FantasyFootball.Activities
 
         private void PopulateElements()
         {
-            players = sqlLiteRepository.GetAllPlayers();
+            premierTeams = sqlLiteRepository.GetPremierTeams();
             UpdateListViewData();
         }
 
         private void UpdateListViewData()
         {
-            players = sqlLiteRepository.GetAllPlayers();
-            playerListView.Adapter = new PlayersListViewAdapter(this, players);
+            premierTeams = sqlLiteRepository.GetPremierTeams();
+            premierTeamListView.Adapter = new PremierTeamListViewAdapter(this, premierTeams);
         }
 
         private void BackBtn_Click(object sender, EventArgs e)

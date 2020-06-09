@@ -17,6 +17,7 @@
     <activity android:label="PickTeamActivity" android:name="crc64f93f58a0eb79c9a6.PickTeamActivity" />
     <activity android:label="RegisterActivity" android:name="crc64f93f58a0eb79c9a6.RegisterTeamActivity" />
     <activity android:label="AddOrEditPlayerActivity" android:name="crc64c7b28a1a2cb5c94b.AddOrEditPlayerActivity" />
+    <activity android:label="EditPremierTeamMainActivity" android:name="crc64c7b28a1a2cb5c94b.EditPremierTeamMainActivity" />
     <activity android:label="EditPlayerMainActivity" android:name="crc64c7b28a1a2cb5c94b.EditPlayerMainActivity" />
     <activity android:label="TeamCompletionActivity" android:name="crc64c7b28a1a2cb5c94b.TeamCompletionActivity" />
     <service android:name="crc64a98abb514ffad9f1.KeepAliveService" />

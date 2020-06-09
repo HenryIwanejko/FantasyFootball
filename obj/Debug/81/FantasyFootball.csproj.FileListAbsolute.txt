@@ -239,7 +239,6 @@ E:\GIT\FantasyFootball\bin\Debug\com.companyname.fantasyfootball-Signed.apk
 E:\GIT\FantasyFootball\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 E:\GIT\FantasyFootball\obj\Debug\81\build.props
 E:\GIT\FantasyFootball\obj\Debug\81\adb.props
-E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.csprojAssemblyReference.cache
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_BuildLibraryImportsCache.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\res.flag
 E:\GIT\FantasyFootball\obj\Debug\81\flata\F6D8C997BD079CD3.stamp
@@ -530,3 +529,8 @@ E:\GIT\FantasyFootball\obj\Debug\81\stamp\_CopyConfigFiles.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_GenerateJavaStubs.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_GeneratePackageManagerJava.stamp
 E:\GIT\FantasyFootball\obj\Debug\81\stamp\_ResolveLibraryProjectImports.stamp
+E:\GIT\FantasyFootball\obj\Debug\81\res\layout\activity_edit_premier_team_main.xml
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamListViewAdapter.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64b013782e8a56e804\PremierTeamListViewAdapterViewHolder.java
+E:\GIT\FantasyFootball\obj\Debug\81\android\src\crc64c7b28a1a2cb5c94b\EditPremierTeamMainActivity.java
+E:\GIT\FantasyFootball\obj\Debug\81\FantasyFootball.csprojAssemblyReference.cache

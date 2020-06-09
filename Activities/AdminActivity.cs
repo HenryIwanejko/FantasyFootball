@@ -16,7 +16,7 @@ namespace FantasyFootball
     [Activity(Label = "AdminActivity")]
     public class AdminActivity : Activity
     {
-        private AdminService adminService = new AdminService();
+        private readonly AdminService adminService = new AdminService();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,12 +35,14 @@ namespace FantasyFootball
 
         private void EditPremierTeam_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            StartActivity(typeof(EditPremierTeamMainActivity));
+            Finish();
         }
 
         private void EditPlayers_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(EditPlayerMainActivity));
+            Finish();
         }
 
         private void ResetFantasyTeamBtn_Click(object sender, EventArgs e)
@@ -52,6 +54,7 @@ namespace FantasyFootball
         private void BackBtn_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));
+            Finish();
         }
     }
 }
