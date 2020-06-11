@@ -32,11 +32,6 @@ namespace FantasyFootballShared
             return dbConnection.Table<FantasyTeam>().ToList();
         }
 
-        public int GetNextFantasyTeamId()
-        {
-            return dbConnection.Table<FantasyTeam>().DefaultIfEmpty().Max(fTeam => fTeam == null ? 0 : fTeam.FantasyTeamID);
-        }
-
         public int AddFantasyTeam(FantasyTeam fantasyTeam)
         {
             return dbConnection.Insert(fantasyTeam);
@@ -65,7 +60,7 @@ namespace FantasyFootballShared
         public int ResetFantasyTeams()
         {
             List<FantasyTeam> teams = GetFantasyTeams();
-            if (teams != null && teams.Count != 0)
+            if (teams != null && teams.Count > 0)
             {
                 foreach (var team in teams)
                 {

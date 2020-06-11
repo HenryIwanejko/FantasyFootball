@@ -10,8 +10,6 @@ namespace FantasyFootballShared
 
         int AddFantasyTeam(FantasyTeam fantasyTeam);
 
-        int GetNextFantasyTeamId();
-
         List<Player> GetPlayers(int positionId);
 
         List<Position> GetPositions();

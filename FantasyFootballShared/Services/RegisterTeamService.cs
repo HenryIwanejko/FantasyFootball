@@ -33,10 +33,13 @@ namespace FantasyFootballShared
             KeyValuePair<bool, string> validatedFields = ValidateFields(fantasyTeamName, managerFirstName, managerLastName);
             if (validatedFields.Key == true)
             {
-                int nextFantasyId = _sqlLiteRepository.GetNextFantasyTeamId();
-                if (nextFantasyId < 2)
+                if (_sqlLiteRepository.GetFantasyTeams().Count < 2)
                 {
-                    FantasyTeam fantasyTeam = new FantasyTeam(nextFantasyId, fantasyTeamName, managerFirstName, managerLastName);
+                    FantasyTeam fantasyTeam = new FantasyTeam(fantasyTeamName, managerFirstName, managerLastName);
+                    if (!VerifyFantasyTeamName(fantasyTeam))
+                    {
+                        return new KeyValuePair<bool, string>(false, "Fantasy Team Name Already Exists");
+                    }
                     int dbResponse = _sqlLiteRepository.AddFantasyTeam(fantasyTeam);
                     if (dbResponse == 1)
                     {
@@ -57,6 +60,19 @@ namespace FantasyFootballShared
             {
                 return validatedFields;
             }
+        }
+
+        public bool VerifyFantasyTeamName(FantasyTeam registeringTeam)
+        {
+            List<FantasyTeam> fantasyTeams = _sqlLiteRepository.GetFantasyTeams();
+            foreach(FantasyTeam team in fantasyTeams)
+            {
+                if (team.FantasyTeamName == registeringTeam.FantasyTeamName)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

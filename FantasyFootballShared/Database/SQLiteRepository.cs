@@ -34,11 +34,6 @@ namespace FantasyFootballShared
             return dbLayer.GetFantasyTeams();
         }
 
-        public int GetNextFantasyTeamId()
-        {
-            return dbLayer.GetNextFantasyTeamId();
-        }
-
         public List<Player> GetPlayers(int positionId)
         {
             return dbLayer.GetPlayers(positionId);

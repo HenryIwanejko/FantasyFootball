@@ -22,9 +22,8 @@ namespace FantasyFootballShared
 
         }
 
-        public FantasyTeam(int fantasyTeamId, string fantasyTeamName, string managerSurname, string managerFirstName)
+        public FantasyTeam(string fantasyTeamName, string managerSurname, string managerFirstName)
         {
-            FantasyTeamID = fantasyTeamId;
             FantasyTeamName = fantasyTeamName;
             ManagerSurname = managerSurname;
             ManagerFirstName = managerFirstName;

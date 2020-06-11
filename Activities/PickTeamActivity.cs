@@ -38,9 +38,8 @@ namespace FantasyFootball
         private int selectionCounter = 0;
         private Player selectedPlayer;
 
-        private PickTeamService pickTeamService = new PickTeamService();
-
-        Dictionary<FantasyTeam, List<Player>> userTeams = new Dictionary<FantasyTeam, List<Player>>();
+        private readonly PickTeamService pickTeamService = new PickTeamService();
+        private readonly Dictionary<FantasyTeam, List<Player>> userTeams = new Dictionary<FantasyTeam, List<Player>>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
