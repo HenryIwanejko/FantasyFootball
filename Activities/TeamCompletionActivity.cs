@@ -44,6 +44,12 @@ namespace FantasyFootball.Activities
             PopulateFields();
         }
 
+        /*
+        * Get data from the previous activity
+        * Deserialize the data and convert to objects
+        * From the data populate the team fields in the UI.
+        * Calculate the cost and budget of the teams.
+        */
         private void PopulateFields()
         {
             Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>> userTeams = JsonConvert.DeserializeObject<Dictionary<int, KeyValuePair<FantasyTeam, List<Player>>>>(Intent.GetStringExtra("teamData"));
@@ -75,6 +81,7 @@ namespace FantasyFootball.Activities
             team2ErrorTextView.Text = $"{pickTeamCompletionService.VerifyTeamBudget(team2Budget, averagePlayerCost2)}";
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             backBtn.Click += BackBtn_Click;
@@ -86,6 +93,7 @@ namespace FantasyFootball.Activities
             Finish();
         }
 
+        // Retrieve the each element used in the UI xml file
         private void RetreiveElements()
         {
             team1TextView = FindViewById<TextView>(Resource.Id.teamCompletionTeam1TxtView);

@@ -38,6 +38,7 @@ namespace FantasyFootball.Activities
             PopulateElements();
         }
 
+        // Retrieve the each element used in the UI xml file
         private void RetrieveElements()
         {
             playerListView = FindViewById<ListView>(Resource.Id.adminEditPlayerMainPlayersLstView);
@@ -46,6 +47,7 @@ namespace FantasyFootball.Activities
             removePlayerBtn = FindViewById<Button>(Resource.Id.adminEditPlayerMainRemoveBtn);
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             FindViewById<Button>(Resource.Id.adminEditPlayerMainBackBtn).Click += BackBtn_Click;
@@ -55,6 +57,7 @@ namespace FantasyFootball.Activities
             editPlayerBtn.Click += EditPlayerBtn_Click;
         }
 
+        // On edit button click package player data up and save to activity for use.
         private void EditPlayerBtn_Click(object sender, EventArgs e)
         {
             if (selectedPlayer != null)
@@ -70,6 +73,7 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // On add button click save action and go to add player page.
         private void AddPlayerBtn_Click(object sender, EventArgs e)
         {
             Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPlayerActivity));
@@ -77,11 +81,13 @@ namespace FantasyFootball.Activities
             StartActivity(addPlayerActivity);
         }
 
+        // Save selected item to the selected player
         private void PlayerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selectedPlayer = players[e.Position];
         }
 
+        // if remove button clicked get selected item and remove from datbase and update view.
         private void RemovePlayerBtn_Click(object sender, EventArgs e)
         {
             if (selectedPlayer != null)
@@ -104,12 +110,14 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // Retrieve players from database and update view with data.
         private void PopulateElements()
         {
             players = sqlLiteRepository.GetAllPlayers();
             UpdateListViewData();
         }
 
+        // Retrieve players from database and update view with data.
         private void UpdateListViewData()
         {
             players = sqlLiteRepository.GetAllPlayers();

@@ -37,6 +37,7 @@ namespace FantasyFootball.Activities
             DetermineAction();
         }
 
+        // Retrieve the each element used in the UI xml file
         private void RetrieveElements()
         {
             title = FindViewById<TextView>(Resource.Id.addOrEditPremierTeamTitleTxtView);
@@ -45,12 +46,14 @@ namespace FantasyFootball.Activities
             backBtn = FindViewById<Button>(Resource.Id.addOrEditPremierTeamBackBtn);
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             backBtn.Click += BackBtn_Click;
             submitButton.Click += SubmitButton_Click;
         }
 
+        // Retrieve from context to determine the user selected to add or edit a premier team
         private void DetermineAction()
         {
             this.action = Intent.GetStringExtra("action");
@@ -66,12 +69,14 @@ namespace FantasyFootball.Activities
             title.Text = $"{action} Premier Team:";
         }
 
+        // if edit premier team selected then get prem team data and populate fields
         private void SetPremierTeamData()
         {
             this.editingPremierTeam = JsonConvert.DeserializeObject<PremierTeam>(Intent.GetStringExtra("PremierTeamData"));
             premierTeamName.Text = editingPremierTeam.PremierTeamName;
         }
 
+        // On submit button click check action selected.
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             if (action == Util.Add)
@@ -84,6 +89,7 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // if user selected to add then add premier team to the database
         private void AddPremierTeam()
         {
             if (Util.ValidateText(premierTeamName.Text))
@@ -102,6 +108,7 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // if user selected to edit the premier team then update premier team to the database
         private void EditPlayer()
         {
             if (Util.ValidateText(premierTeamName.Text) && editingPremierTeam != null)
@@ -120,11 +127,13 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // Get data from UI and update premier team object.
         private void UpdatePremierTeamInfo()
         {
             editingPremierTeam.PremierTeamName = premierTeamName.Text;
         }
 
+        // On back button click go to edit premier team main page.
         private void BackBtn_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(EditPremierTeamMainActivity));

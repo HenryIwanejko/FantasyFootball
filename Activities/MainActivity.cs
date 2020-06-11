@@ -21,6 +21,10 @@ namespace FantasyFootball
             InitialiseDatabase();
         }
 
+        /*
+        * Initialise the Database
+        * Copies the Raw datbase file in path to the devices personal folder
+        */
         private void InitialiseDatabase()
         {
             var docFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
@@ -33,6 +37,11 @@ namespace FantasyFootball
             }
         }
 
+        /* 
+         * Method to Copy from one location to another
+         * readStream: the file reading from.
+         * writeStream: the file to write to.
+        */
         private void ReadWriteStream(Stream readStream, Stream writeStream)
         {
             int length = 256;
@@ -47,7 +56,7 @@ namespace FantasyFootball
             writeStream.Close();
         }
 
-
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             FindViewById<Button>(Resource.Id.mainInstructionsBtn).Click += InstructionsBtn_Click;
@@ -56,21 +65,25 @@ namespace FantasyFootball
             FindViewById<Button>(Resource.Id.mainAdminBtn).Click += AdminBtn_Click;
         }
 
+        // On admin button click go to admin page
         private void AdminBtn_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(AdminActivity));
         }
 
+        // On pick team button click go to pick team page
         private void PickTeamBtn_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(PickTeamActivity));
         }
 
+        // On register button click go to register team page
         private void RegisterTeamBtn_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(RegisterTeamActivity));
         }
 
+        // On instructions button click go to the instructions page
         private void InstructionsBtn_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(InstructionsActivity));

@@ -38,6 +38,7 @@ namespace FantasyFootball.Activities
             PopulateElements();
         }
 
+        // Retrieve the each element used in the UI xml file
         private void RetrieveElements()
         {
             premierTeamListView = FindViewById<ListView>(Resource.Id.adminEditPremierTeamMainPremierTeamsLstView);
@@ -46,6 +47,7 @@ namespace FantasyFootball.Activities
             removePremierTeamBtn = FindViewById<Button>(Resource.Id.adminEditPremierTeamMainRemoveBtn);
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             FindViewById<Button>(Resource.Id.adminEditPremierTeamMainBackBtn).Click += BackBtn_Click;
@@ -55,6 +57,7 @@ namespace FantasyFootball.Activities
             editPremierTeamBtn.Click += EditPremierTeamBtn_Click;
         }
 
+        // On eidt button click package up premier team data and save to new activity to use.
         private void EditPremierTeamBtn_Click(object sender, EventArgs e)
         {
             if (selectedPremierTeam != null)
@@ -70,6 +73,7 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // On add button click save action and go to add premier team page.
         private void AddPremierTeamBtn_Click(object sender, EventArgs e)
         {
             Intent addPlayerActivity = new Intent(this, typeof(AddOrEditPremierTeamActivity));
@@ -77,11 +81,13 @@ namespace FantasyFootball.Activities
             StartActivity(addPlayerActivity);
         }
 
+        // Save selected item to the selected premier team
         private void PremierTeamListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selectedPremierTeam = premierTeams[e.Position];
         }
 
+        // On remove button click then remove selected player from the database.
         private void RemovePremierTeamBtn_Click(object sender, EventArgs e)
         {
             if (selectedPremierTeam != null)
@@ -104,12 +110,14 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // Retrieve data from database and update UI with data
         private void PopulateElements()
         {
             premierTeams = sqlLiteRepository.GetPremierTeams();
             UpdateListViewData();
         }
 
+        // Retrieve data from database and update UI with data
         private void UpdateListViewData()
         {
             premierTeams = sqlLiteRepository.GetPremierTeams();

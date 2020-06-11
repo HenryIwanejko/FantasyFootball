@@ -46,6 +46,7 @@ namespace FantasyFootball.Activities
             DetermineAction();
         }
 
+        // Retrieve the each element used in the UI xml file
         private void RetrieveElements()
         {
             title = FindViewById<TextView>(Resource.Id.addOrEditPlayerTitleTxtView);
@@ -58,6 +59,7 @@ namespace FantasyFootball.Activities
             backBtn = FindViewById<Button>(Resource.Id.addOrEditPlayerBackBtn);
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             backBtn.Click += BackBtn_Click;
@@ -66,6 +68,7 @@ namespace FantasyFootball.Activities
             premierTeamSpinner.ItemSelected += PremierTeamSpinner_ItemSelected;
         }
 
+        // Retrieve from context to determine the user selected to add or edit a player
         private void DetermineAction()
         {
             this.action = Intent.GetStringExtra("action");
@@ -81,6 +84,11 @@ namespace FantasyFootball.Activities
             title.Text = $"{action} Player:";
         }
 
+        /*
+        * If user selected edit player
+        * Deserialize the player data
+        * Populate the fields with the player data
+        */
         private void SetPlayerData()
         {
             this.editingPlayer = JsonConvert.DeserializeObject<Player>(Intent.GetStringExtra("PlayerData"));
@@ -91,16 +99,19 @@ namespace FantasyFootball.Activities
             premierTeamSpinner.SetSelection(editingPlayer.PremierTeamID - 1);
         }
 
+        // On item selected set the selected player to the selected player from the listview
         private void PremierTeamSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             selectedPremTeam = premierTeams[e.Position];
         }
 
+        // On item selected set the selected position to the selected position from the spinner
         private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             selectedPosition = positions[e.Position];
         }
 
+        // Retrieve from database and populate the fields on the UI with the data
         private void PopulateElements()
         {
             premierTeams = sqlLiteRepository.GetPremierTeams();
@@ -109,6 +120,7 @@ namespace FantasyFootball.Activities
             positionSpinner.Adapter = new PositionsSpinnerAdapter(this, positions);
         }
 
+        // On submit click then choose action based on data passed.
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             if (action == Util.Add)
@@ -121,6 +133,7 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // if add player action selected validate and add player data into the database 
         private void AddPlayer()
         {
             decimal price = 0;
@@ -140,6 +153,7 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // if edit player action selected, validate and update the player data in the database.
         private void EditPlayer()
         {
             decimal price = 0;
@@ -159,6 +173,7 @@ namespace FantasyFootball.Activities
             }
         }
 
+        // Retrieve data from the UI and save it against the player model
         private void UpdatePlayerInfo(decimal price)
         {
             editingPlayer.Firstname = firstnameEditView.Text;
@@ -168,6 +183,7 @@ namespace FantasyFootball.Activities
             editingPlayer.PremierTeamID = selectedPremTeam.PremierTeamID;
         }
 
+        // Validate all the input fields on the UI so we pass valid data
         private bool ValidateFields(ref decimal price)
         {
             if (Util.ValidateText(firstnameEditView.Text, surnameEditView.Text, priceEditView.Text) && Util.ValidateDecimal(priceEditView.Text, ref price))
@@ -178,6 +194,7 @@ namespace FantasyFootball.Activities
             return false;
         }
 
+        // On back button click go to edit player main page.
         private void BackBtn_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(EditPlayerMainActivity));

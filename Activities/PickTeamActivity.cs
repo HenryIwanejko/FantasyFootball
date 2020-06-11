@@ -54,12 +54,14 @@ namespace FantasyFootball
             }
         }
 
+        // Choose a random team to go first
         private FantasyTeam SelectInitialFantasyTeam()
         {
             int randomIndex = new Random().Next(1);
             return teams[randomIndex];
         }
 
+        // Validate that 2 teams have been registered.
         private bool ValidateTeams()
         {
             if (pickTeamService.ValidateFantasyTeams(teams))
@@ -71,6 +73,7 @@ namespace FantasyFootball
             return true;
         }
 
+        // Get first team and update UI with that teams data.
         private void InitialiseTeams()
         {
             currentTeam = SelectInitialFantasyTeam();
@@ -79,6 +82,7 @@ namespace FantasyFootball
             teamName.Text = currentTeam.FantasyTeamName;
         }
 
+        // On team switch update UI with that team data.
         private void SetTeamDetails()
         {
             currentTeam = pickTeamService.SetTeamDetails(teams, currentTeam, ref positionCounter, ref selectionCounter);
@@ -87,6 +91,7 @@ namespace FantasyFootball
             teamName.Text = currentTeam.FantasyTeamName;
         }
 
+        // Get specific position to select from until the last player choice
         private void PositionSelector()
         {
             if (positionCounter < 4)
@@ -101,6 +106,7 @@ namespace FantasyFootball
             }
         }
 
+        // Retrieve the each element used in the UI xml file
         private void RetrieveElements()
         {
             backBtn = FindViewById<Button>(Resource.Id.pickTeamBackBtn);
@@ -113,6 +119,7 @@ namespace FantasyFootball
             this.positions = pickTeamService.GetPositions();
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             positionSpinner.ItemSelected += PositionSpinner_ItemSelected;
@@ -131,18 +138,21 @@ namespace FantasyFootball
             playerSelectionLstView.Adapter = new PlayersListViewAdapter(this, this.players);
         }
 
+        // For a specific position get all players from the database.
         private void RetrievePlayerData(int positionIndex)
         {
             Position position = positions[positionIndex];
             this.players = pickTeamService.RetrieveAndCleansePlayerData(userTeams, position);
         }
 
+        // Retrieve player data and update UI
         private void PositionSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             RetrievePlayerData(positionCounter < 4 ? positionCounter : e.Position);
             PopulateListView();
         }
 
+        // On submit add player to current team if one is selected.
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
             if (selectedPlayer != null) 
@@ -156,6 +166,7 @@ namespace FantasyFootball
             }
         }
 
+        // Add selected player to the current team choosing
         private void AddPlayerToTeam()
         {
             userTeams[currentTeam].Add(selectedPlayer);
@@ -163,6 +174,7 @@ namespace FantasyFootball
             this.selectedPlayer = null;
         }
 
+        // Calculates which player is selecting next, if last pick then goes to the completion page
         private void SetNextPlayerSelection()
         {
             SetTeamDetails();

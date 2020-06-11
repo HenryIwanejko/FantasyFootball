@@ -32,12 +32,14 @@ namespace FantasyFootball
             RetreiveElements();
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
             FindViewById<Button>(Resource.Id.registerTeamBackBtn).Click += RegisterTeamActivity_Click;
             FindViewById<Button>(Resource.Id.registerTeamSubmitBtn).Click += SubmitButton_Click;
         }
 
+        // Retrieve the each element used in the UI xml file
         private void RetreiveElements()
         {
             fantasyTeamName = FindViewById<EditText>(Resource.Id.registerTeamFantasyNameTxtBx);
@@ -46,6 +48,12 @@ namespace FantasyFootball
             errorMessage = FindViewById<TextView>(Resource.Id.registerTeamErrorMessageTxtView);
         }
 
+        /*
+        * On the click event handler:
+        * Validate input fields
+        * Check database to see if team name exists
+        * Add to database
+        */
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             KeyValuePair<bool, string> insertedIntoDatabase = registerTeamService.InsertedTeamToDatabase(fantasyTeamName.Text, managerFirstName.Text, managerLastName.Text);
@@ -56,6 +64,7 @@ namespace FantasyFootball
             }
         }
 
+        // On back button click go to main page
         private void RegisterTeamActivity_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));

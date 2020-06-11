@@ -22,12 +22,14 @@ namespace FantasyFootball
             AddEventHandlers();
         }
 
+        // Map elements to event handlers
         private void AddEventHandlers()
         {
-            FindViewById<Button>(Resource.Id.instructionsBackBtn).Click += InstructionsActivity_Click; ;
+            FindViewById<Button>(Resource.Id.instructionsBackBtn).Click += BackBtn_Click; ;
         }
 
-        private void InstructionsActivity_Click(object sender, EventArgs e)
+        // On back button click go back to main page
+        private void BackBtn_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));
         }
