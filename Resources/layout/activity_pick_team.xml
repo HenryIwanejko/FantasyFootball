@@ -74,6 +74,7 @@
             android:layout_height="1500px"
             android:id="@+id/pickTeamPlayerSelectionLstView"
             android:padding="10dp"
+            android:listSelector="@android:color/darker_gray"
             android:textSize="16sp">
         </ListView>
         <Button

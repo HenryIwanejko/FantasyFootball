@@ -22,6 +22,7 @@
             android:layout_width="fill_parent"
             android:layout_height="1500px"
             android:id="@+id/adminEditPlayerMainPlayersLstView"
+            android:listSelector="@android:color/darker_gray"
             android:padding="10dp"
             android:textSize="16sp">
         </ListView>

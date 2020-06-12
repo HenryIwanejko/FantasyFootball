@@ -21,6 +21,7 @@
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="1500px"
+            android:listSelector="@android:color/darker_gray"
             android:id="@+id/adminEditPremierTeamMainPremierTeamsLstView"
             android:padding="10dp"
             android:textSize="16sp">
