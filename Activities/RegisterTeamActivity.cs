@@ -60,6 +60,7 @@ namespace FantasyFootball
             errorMessage.Text = insertedIntoDatabase.Value;
             if (insertedIntoDatabase.Key == true)
             {
+                Toast.MakeText(this, $"Fantasy team {fantasyTeamName.Text} has been created", ToastLength.Short).Show();
                 StartActivity(typeof(MainActivity));
             }
         }

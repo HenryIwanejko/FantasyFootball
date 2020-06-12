@@ -124,6 +124,7 @@ namespace FantasyFootball.Activities
             playerListView.Adapter = new PlayersListViewAdapter(this, players);
         }
 
+        // On back button click 
         private void BackBtn_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(AdminActivity));

@@ -43,8 +43,7 @@ namespace FantasyFootballShared
                     int dbResponse = _sqlLiteRepository.AddFantasyTeam(fantasyTeam);
                     if (dbResponse == 1)
                     {
-                        return new KeyValuePair<bool, string>(true, ""); ;
-
+                        return new KeyValuePair<bool, string>(true, "");
                     }
                     else
                     {
