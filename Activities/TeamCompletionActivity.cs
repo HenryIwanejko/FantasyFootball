@@ -66,19 +66,20 @@ namespace FantasyFootball.Activities
             team2ListView.Adapter = team2PlayersAdapter;
             team2PlayersAdapter.NotifyDataSetChanged();
 
-            team1TotalCostTextView.Text = $"Total Cost: £{pickTeamCompletionService.CalculateTeamCost(team1.Value)}m";
-            decimal averagePlayerCost1 = pickTeamCompletionService.CalculateAveragePlayerCost(team1.Value);
-            decimal team1Budget = pickTeamCompletionService.CalculateTeamBudget(team1.Value);
-            team1AverageCostTextView.Text = $"Average Player Cost: £{averagePlayerCost1}m";
-            team1BudgetTextView.Text = $"Team Budget: £{team1Budget}m";
-            team1ErrorTextView.Text = $"{pickTeamCompletionService.VerifyTeamBudget(team1Budget, averagePlayerCost1)}";
-            
-            team2TotalCostTextView.Text = $"Total Cost: £{pickTeamCompletionService.CalculateTeamCost(team2.Value)}m";
-            decimal averagePlayerCost2 = pickTeamCompletionService.CalculateAveragePlayerCost(team2.Value);
-            decimal team2Budget = pickTeamCompletionService.CalculateTeamBudget(team2.Value);
-            team2AverageCostTextView.Text = $"Average Player Cost: £{averagePlayerCost2}m";
-            team2BudgetTextView.Text = $"Team Budget: £{team2Budget}m";
-            team2ErrorTextView.Text = $"{pickTeamCompletionService.VerifyTeamBudget(team2Budget, averagePlayerCost2)}";
+            decimal budget = pickTeamCompletionService.CalculateTeamBudget();
+            decimal averagePlayerCost = pickTeamCompletionService.CalculateAveragePlayerCost();
+
+            decimal team1Cost = pickTeamCompletionService.CalculateTeamCost(team1.Value);
+            team1TotalCostTextView.Text = $"Total Cost: £{team1Cost}m";
+            team1AverageCostTextView.Text = $"Average Player Cost: £{averagePlayerCost:0.##}m";
+            team1BudgetTextView.Text = $"Team Budget: £{budget:0.##}m";
+            team1ErrorTextView.Text = $"{pickTeamCompletionService.VerifyTeamBudget(budget, team1Cost)}";
+
+            decimal team2Cost = pickTeamCompletionService.CalculateTeamCost(team1.Value);
+            team2TotalCostTextView.Text = $"Total Cost: £{team2Cost}m";
+            team2AverageCostTextView.Text = $"Average Player Cost: £{averagePlayerCost:0.##}m";
+            team2BudgetTextView.Text = $"Team Budget: £{budget:0.##}m";
+            team2ErrorTextView.Text = $"{pickTeamCompletionService.VerifyTeamBudget(budget, team2Cost)}";
         }
 
         // Map elements to event handlers

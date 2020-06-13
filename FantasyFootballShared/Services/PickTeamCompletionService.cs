@@ -6,6 +6,7 @@ namespace FantasyFootballShared
 {
     public class PickTeamCompletionService
     {
+        private readonly ISQLiteRepository sQLiteRepository = new SQLiteRepository();
 
         public PickTeamCompletionService()
         {
@@ -22,15 +23,16 @@ namespace FantasyFootballShared
             return total;
         }
 
-        public decimal CalculateAveragePlayerCost(List<Player> players)
+        public decimal CalculateAveragePlayerCost()
         {
+            List<Player> players = sQLiteRepository.GetAllPlayers();
             decimal totalTeamCost = CalculateTeamCost(players);
             return totalTeamCost / players.Count;
         }
 
-        public decimal CalculateTeamBudget(List<Player> players)
+        public decimal CalculateTeamBudget()
         {
-            decimal averagePlayer = CalculateAveragePlayerCost(players);
+            decimal averagePlayer = CalculateAveragePlayerCost();
             return (averagePlayer * 5) + 1;
         }
 
