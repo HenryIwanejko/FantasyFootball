@@ -69,7 +69,7 @@ namespace FantasyFootball.Activities
             }
             else
             {
-                Toast.MakeText(this, "Please Select a Player", ToastLength.Short).Show();
+                Toast.MakeText(this, "Please Select a Premier Team", ToastLength.Short).Show();
             }
         }
 
@@ -106,7 +106,7 @@ namespace FantasyFootball.Activities
             }
             else
             {
-                Toast.MakeText(this, "Please Select a Player", ToastLength.Short).Show();
+                Toast.MakeText(this, "Please Select a Premier Team", ToastLength.Short).Show();
             }
         }
 
