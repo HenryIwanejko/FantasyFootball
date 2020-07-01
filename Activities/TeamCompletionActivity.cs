@@ -75,7 +75,7 @@ namespace FantasyFootball.Activities
             team1BudgetTextView.Text = $"Team Budget: £{budget:0.##}m";
             team1ErrorTextView.Text = $"{pickTeamCompletionService.VerifyTeamBudget(budget, team1Cost)}";
 
-            decimal team2Cost = pickTeamCompletionService.CalculateTeamCost(team1.Value);
+            decimal team2Cost = pickTeamCompletionService.CalculateTeamCost(team2.Value);
             team2TotalCostTextView.Text = $"Total Cost: £{team2Cost}m";
             team2AverageCostTextView.Text = $"Average Player Cost: £{averagePlayerCost:0.##}m";
             team2BudgetTextView.Text = $"Team Budget: £{budget:0.##}m";
